@@ -1,5 +1,5 @@
-/* Generated with the page - do not edit. Version: a5ba6eaa698b */
-var CACHE = "macy-coach-a5ba6eaa698b";
+/* Generated with the page - do not edit. Version: f38ae77acedf */
+var CACHE = "macy-coach-f38ae77acedf";
 var SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 var NET_TIMEOUT_MS = 1500;
 
@@ -16,8 +16,6 @@ self.addEventListener("fetch", function (e) {
   if (req.method !== "GET") return;
   var isPage = req.mode === "navigate" || req.url.indexOf("index.html") >= 0;
   if (isPage) {
-    // Network-first with a short timeout: online = always the current plan;
-    // offline or slow gym signal = instant cached copy.
     e.respondWith(new Promise(function (resolve) {
       var settled = false;
       var timer = setTimeout(function () {
