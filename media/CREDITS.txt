@@ -1,3 +1,2 @@
 Exercise demonstration photos from free-exercise-db
 https://github.com/yuhonas/free-exercise-db — released into the public domain (Unlicense).
-Suitcase carry illustrations drawn for this program.

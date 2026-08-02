@@ -250,15 +250,6 @@ body.inbrowser .tabbar{padding-bottom:calc(18px + env(safe-area-inset-bottom))}
   background:linear-gradient(transparent, rgba(0,0,0,.55));line-height:1.2}
 .milecard{background:var(--good-soft);border-radius:16px;padding:14px 16px;margin:12px 0}
 .milecard .mhead{font-family:var(--display);font-size:1.02rem;font-weight:800;color:var(--good-ink);margin-bottom:4px}
-.lettercard{border:1.5px solid var(--accent)}
-.lettercard .from{font-size:.74rem;font-weight:800;letter-spacing:.07em;color:var(--accent-ink);text-transform:uppercase;margin-bottom:8px}
-.lettercard .ltitle{font-family:var(--display);font-size:1.15rem;font-weight:800;margin-bottom:10px;color:var(--ink)}
-.lettercard p{font-size:.94rem;margin-bottom:9px;line-height:1.55}
-.lphoto{width:100%;border-radius:12px;display:block;margin:0 0 6px}
-.lcaption{font-size:.76rem;color:var(--sub);margin-bottom:10px;text-align:center}
-.lsign{font-family:var(--display);font-size:1rem;color:var(--accent-ink);text-align:right;margin-top:10px}
-.lockedletter{color:var(--sub);font-size:.88rem;text-align:center;background:var(--bg);border-style:dashed}
-.lockedletter .lock{opacity:.7}
 .stair{padding:10px 0;border-bottom:1px solid var(--line)}
 .stair:last-child{border-bottom:none}
 .stair .sname{font-weight:700;font-size:.9rem}
@@ -273,6 +264,13 @@ body.inbrowser .tabbar{padding-bottom:calc(18px + env(safe-area-inset-bottom))}
 .teaser{font-weight:600;color:var(--sub);font-size:.82rem}
 .shortoffer{margin-top:14px}
 .shortoffer > summary{text-align:center;color:var(--sub);opacity:.85}
+/* the quiet door: logging something the calendar never planned, and building her own */
+.shortcard{background:var(--card);border-radius:16px;padding:16px 14px;margin-top:10px;box-shadow:var(--shadow)}
+.logbtn{width:100%;margin:6px 0;padding:12px;font-size:.95rem}
+.premadepick{margin-top:10px;display:flex;flex-direction:column;gap:2px}
+.freein{width:100%;margin:8px 0 4px;padding:12px;font-size:1rem;border-radius:12px;
+  border:1px solid var(--line);background:var(--bg);color:var(--ink);-webkit-appearance:none}
+.freein:focus{outline:2px solid var(--accent-ink);outline-offset:1px}
 .banner.short{background:var(--chip)}
 .banner.short h2{color:var(--ink)}
 .banner.steady{background:var(--chip)}
@@ -366,7 +364,7 @@ body.inbrowser .tabbar{padding-bottom:calc(18px + env(safe-area-inset-bottom))}
 <div id="a2hs"></div>
 <audio id="chime" preload="auto" playsinline src="data:audio/wav;base64,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"></audio>
 <script>
-var DATA = {"meta":{"pageTitle":"Macy's Coach","programWeeks":12,"startDate":"2026-08-03","welcomeBack":{"afterDaysAway":7,"sets":2,"skipOptional":true,"skipAmrap":true},"sync":{"endpoint":"https://macy-sync.mg-coach-sync.workers.dev/s/9e7bf3f92433cf9ff805ee8bc0aaea8d"},"demoMode":false,"version":1,"overrides":{},"rungSet":{},"steady":{"on":false,"since":null,"until":null,"setsCap":2,"restMultiplier":1.25,"skipOptional":true,"skipAmrap":true,"label":"Steady weeks","headline":"Steady weeks - holding, not climbing","note":"For this stretch the plan holds your weights where they are, trims a set, and gives you longer rests. Everything you built stays built. If something feels easy, tap 'too easy' - that still moves you up, any day you want it.","guideBody":["Sometimes the right move is to protect what you've built instead of chasing more. That's what these weeks are: the same exercises, the same weights you already own, one less set, longer rests, and the automatic climbs paused.","Nothing is being taken away and nothing resets. Your session count keeps going up, your ladders stay exactly where they are, and the 'too easy' tap still works on any exercise on any day. When steady weeks end, the climb clock starts fresh from that day - there's no surprise jump waiting for you."],"endedNote":"Steady weeks are done. Same weights you finished on, full sets back, and the automatic climbs start counting again from today."},"buildTag":"bca29e5"},"scheduleByWeek":[{"week":1,"days":{"monday":"liftA","tuesday":"open","wednesday":"liftB","thursday":"open","friday":"liftC","saturday":"open","sunday":"rest"}},{"week":2,"days":{"monday":"open","tuesday":"liftA","wednesday":"open","thursday":"liftB","friday":"open","saturday":"liftC","sunday":"rest"}},{"week":3,"days":{"monday":"liftB","tuesday":"open","wednesday":"liftC","thursday":"open","friday":"open","saturday":"liftA","sunday":"rest"}},{"week":4,"days":{"monday":"open","tuesday":"liftB","wednesday":"open","thursday":"open","friday":"liftC","saturday":"liftA","sunday":"rest"}},{"week":5,"days":{"monday":"liftC","tuesday":"liftA","wednesday":"open","thursday":"liftB","friday":"open","saturday":"open","sunday":"rest"}},{"week":6,"days":{"monday":"open","tuesday":"open","wednesday":"liftB","thursday":"open","friday":"liftA","saturday":"liftC","sunday":"rest"}},{"week":7,"days":{"monday":"liftC","tuesday":"open","wednesday":"open","thursday":"liftA","friday":"liftB","saturday":"open","sunday":"rest"}},{"week":8,"days":{"monday":"open","tuesday":"liftC","wednesday":"liftA","thursday":"open","friday":"open","saturday":"liftB","sunday":"rest"}},{"week":9,"days":{"monday":"liftB","tuesday":"open","wednesday":"liftA","thursday":"open","friday":"liftC","saturday":"open","sunday":"rest"}},{"week":10,"days":{"monday":"open","tuesday":"liftA","wednesday":"open","thursday":"liftC","friday":"open","saturday":"liftB","sunday":"rest"}},{"week":11,"days":{"monday":"liftB","tuesday":"liftA","wednesday":"open","thursday":"open","friday":"liftC","saturday":"open","sunday":"rest"}},{"week":12,"days":{"monday":"open","tuesday":"open","wednesday":"liftC","thursday":"liftA","friday":"open","saturday":"liftB","sunday":"rest"}}],"blocks":[{"name":"Foundation","weeks":[1,4],"focus":"Learn the movements, calibrate your weights, climb the reps. Week 1 is 2 sets of everything on purpose - finish feeling like you had more."},{"name":"Build","weeks":[5,8],"focus":"The weights start climbing for real. Barbell hip thrusts are yours now. This is where strength you can feel shows up."},{"name":"Strong","weeks":[9,12],"focus":"Heavier and more confident. Your big lifts drop to fewer reps at heavier weight because you can handle it now. Optional finishers if you want them."}],"progression":{"type":"steady_climb","rule":"Every third time you finish an exercise, the page moves you up one step to the next weight. Feel ready sooner? Tap 'too easy' and it moves you up next session instead. Something felt like a grind? Tap 'felt heavy' and next session hands you one step lighter.","amrapWeek":2},"sessions":{"liftA":{"title":"Legs + Back","blurb":"Built around the hinge - the movement your classes never load. Romanian deadlifts wake up your hamstrings, the goblet squat loads your legs for real, and the pulldown-row pair builds the upper-back strength that makes posture effortless. The suitcase carry is ab work that doesn't look like ab work.","restDefaultSeconds":90,"warmup":"4-5 easy minutes on the bike or incline treadmill, then your first exercise's first set counts as part of the warm-up - take it smooth.","shortVersion":{"keep":[0,1,2],"sets":2},"exercises":[{"exerciseId":"goblet_squat","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"block3Count":8,"ladderStart":"25 lb dumbbell","restSeconds":120},{"exerciseId":"db_rdl","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"ladderStart":"15 lb dumbbells","restSeconds":120},{"exerciseId":"lat_pulldown_wide","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"ladderStart":"50 lb on the stack","amrapCalibration":true,"restSeconds":90},{"exerciseId":"seated_cable_row","sets":3,"week1Sets":2,"work":{"type":"reps","count":12},"ladderStart":"40 lb on the stack","restSeconds":90},{"exerciseId":"suitcase_carry","sets":3,"week1Sets":2,"work":{"type":"time","seconds":30,"perSide":true},"ladderStart":"25 lb dumbbell","restSeconds":60}],"optionalFinisher":{"exerciseId":"seated_leg_curl","weeks":[9,12],"sets":2,"work":{"type":"reps","count":12},"ladderStart":"40 lb on the stack","restSeconds":60}},"liftB":{"title":"Glutes + Upper Back","blurb":"Glutes get their flagship lift - the hip thrust - plus the leg press, the machine where your numbers climb fastest and being strong feels obvious. One small pressing slot on purpose: your classes already press plenty, so your gym time goes where they can't.","restDefaultSeconds":90,"warmup":"4-5 easy minutes on the bike or incline treadmill, then take your first leg press set smooth as a ramp-in.","shortVersion":{"keep":[0,1,2],"sets":2},"exercises":[{"exerciseId":"leg_press","sets":3,"week1Sets":2,"work":{"type":"reps","count":12},"block3Count":10,"ladderStart":"110 lb","amrapCalibration":true,"restSeconds":120},{"exerciseId":"hip_thrust","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"block3Count":8,"ladderStart":"25 lb dumbbell","restSeconds":120},{"exerciseId":"chest_supported_db_row","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"ladderStart":"15 lb dumbbells","restSeconds":90},{"exerciseId":"incline_db_press","sets":2,"week1Sets":2,"work":{"type":"reps","count":8},"ladderStart":"12 lb dumbbells","note":"If there are no 12s, grab the 10s.","restSeconds":90},{"exerciseId":"hip_abduction_machine","sets":2,"week1Sets":2,"work":{"type":"reps","count":12},"ladderStart":"50 lb on the stack","restSeconds":60}],"optionalFinisher":{"exerciseId":"back_extension_45","weeks":[9,12],"sets":2,"work":{"type":"reps","count":12},"ladderStart":"just your bodyweight","restSeconds":60}},"liftC":{"title":"Glutes + Legs + Back","blurb":"Hip thrusts lead again (they climb fastest of anything you do), lunges bring back cheerleader legs, and a double dose of back work rounds it out. The anti-twist core finisher tightens your middle without a single crunch - you get plenty of those in class.","restDefaultSeconds":90,"warmup":"4-5 easy minutes on the bike or incline treadmill, then one smooth lighter set of hip thrusts before your working sets.","shortVersion":{"keep":[0,2,3],"sets":2},"exercises":[{"exerciseId":"hip_thrust","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"block3Count":8,"ladderStart":"25 lb dumbbell","restSeconds":120},{"exerciseId":"db_reverse_lunge","sets":2,"week1Sets":2,"work":{"type":"reps","count":8,"perSide":true},"ladderStart":"just your bodyweight","restSeconds":90},{"exerciseId":"lat_pulldown_neutral","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"ladderStart":"50 lb on the stack","restSeconds":90},{"exerciseId":"one_arm_db_row","sets":3,"week1Sets":2,"work":{"type":"reps","count":10,"perSide":true},"ladderStart":"20 lb dumbbell","restSeconds":90},{"exerciseId":"pallof_press","sets":2,"week1Sets":2,"work":{"type":"reps","count":10,"perSide":true},"ladderStart":"15 lb on the cable stack","restSeconds":60}],"optionalFinisher":{"exerciseId":"db_step_up","weeks":[9,12],"sets":2,"work":{"type":"reps","count":8,"perSide":true},"ladderStart":"10 lb dumbbells","restSeconds":60}},"open":{"title":"Class Day","card":"No weights today - this is a Sculpt day. Your classes are half this program: the sweat, the reps, the room. Book whichever time works and log it here after.","noClassNote":"No class today? Totally fine - the schedule flexes. A walk counts. Sunday is the only day the plan asks nothing of you.","logButton":"I went to Sculpt 🔥","loggedTitle":"Class logged.","effortPrompt":"How'd it go?","efforts":[{"id":"chill","emoji":"😌","label":"chill"},{"id":"solid","emoji":"😅","label":"solid"},{"id":"melted","emoji":"🥵","label":"melted"}],"hydrationNote":"Now the important part: a big glass of water with a pinch of salt or an electrolyte packet. You sweat way more in there than it feels like - tomorrow's workout will thank you.","eveningNote":"If it was an evening class, a cool shower helps you wind down for sleep."},"rest":{"title":"Rest Day","card":"Fully off, on purpose. Rest is when your body actually builds the muscle you worked for this week. Walk, stretch, see people, sleep in a little. You earned this one."}},"exercises":{"goblet_squat":{"name":"Goblet Squat","setup":"Hold one dumbbell vertically against your chest with both hands, like you're hugging it. Feet a little wider than hips, toes turned out slightly.","how":"Sit straight down between your legs - as deep as feels comfortable - then stand back up. Chest stays proud the whole time.","feel":"Thighs and glutes. The dumbbell hug keeps your back happy.","cues":["Chest up, elbows inside your knees","Whole foot stays flat","Stand up like you mean it"],"ladder":["15 lb dumbbell","20 lb dumbbell","25 lb dumbbell","30 lb dumbbell","35 lb dumbbell","40 lb dumbbell","45 lb dumbbell","50 lb dumbbell","55 lb dumbbell","60 lb dumbbell"],"why":"quads get volume in Sculpt, but never with real load - this is the load","media":{"imgA":"goblet_squat_a.jpg","imgB":"goblet_squat_b.jpg","credit":"free-exercise-db (public domain)"}},"db_rdl":{"name":"Dumbbell Romanian Deadlift","setup":"A dumbbell in each hand resting on the front of your thighs. Feet hip-width, soft bend in the knees.","how":"Push your hips straight back (like closing a car door with your butt) and let the dumbbells slide down your thighs to about mid-shin. Then drive your hips forward to stand tall.","feel":"The whole back of your legs - hamstrings stretching on the way down, glutes finishing at the top.","cues":["Hips go back, not down","Dumbbells stay close - practically touching your legs","Flat back, long spine"],"ladder":["15 lb dumbbells","20 lb dumbbells","25 lb dumbbells","30 lb dumbbells","35 lb dumbbells","40 lb dumbbells","45 lb dumbbells","50 lb dumbbells"],"why":"none - Sculpt never loads your hamstrings. This is all yours","media":{"imgA":"db_rdl_a.jpg","imgB":"db_rdl_b.jpg","credit":"free-exercise-db (public domain)"}},"lat_pulldown_wide":{"name":"Lat Pulldown (wide grip)","setup":"Sit at the lat pulldown machine, thighs snug under the pads. Grab the wide bar a bit outside your shoulders.","how":"Pull the bar down to the top of your chest while your elbows drive down and back. Let it rise back up with control - get a big stretch at the top.","feel":"The sides of your back, like wings. A little biceps is fine.","cues":["Pull with your elbows, not your hands","Chest up to meet the bar","Slow on the way up"],"ladder":["35 lb on the stack","40 lb on the stack","45 lb on the stack","50 lb on the stack","55 lb on the stack","60 lb on the stack","70 lb on the stack","80 lb on the stack","90 lb on the stack","100 lb on the stack","110 lb on the stack"],"why":"zero - Sculpt has no real pulling. This builds the back that makes waists look snatched","media":{"imgA":"lat_pulldown_wide_a.jpg","imgB":"lat_pulldown_wide_b.jpg","credit":"free-exercise-db (public domain)"}},"seated_cable_row":{"name":"Seated Cable Row","setup":"Sit at the cable row, feet on the plates, knees soft. Grab the V-handle and sit tall with arms long.","how":"Pull the handle to your belly button, squeezing your shoulder blades together. Let it return slowly until your arms are long again.","feel":"The middle of your back, between the shoulder blades.","cues":["Shoulder blades pinch together","Sit tall - no leaning way back","Slow return"],"ladder":["30 lb on the stack","35 lb on the stack","40 lb on the stack","45 lb on the stack","50 lb on the stack","55 lb on the stack","60 lb on the stack","70 lb on the stack","80 lb on the stack","90 lb on the stack"],"why":"Sculpt's 5 lb rows don't count - this is where posture gets built","media":{"imgA":"seated_cable_row_a.jpg","imgB":"seated_cable_row_b.jpg","credit":"free-exercise-db (public domain)"}},"suitcase_carry":{"name":"Suitcase Carry","setup":"One heavy-ish dumbbell in one hand, hanging at your side like a suitcase. Stand tall.","how":"Walk 30 seconds tall and controlled - the weight will try to tip you sideways; don't let it. Switch hands, walk back.","feel":"Your side abs and grip, working overtime to keep you perfectly upright. This is ab work that doesn't look like ab work.","cues":["Shoulders level - don't lean","Walk like there's a book on your head","Squeeze the handle hard"],"ladder":["25 lb dumbbell","30 lb dumbbell","35 lb dumbbell","40 lb dumbbell","45 lb dumbbell","50 lb dumbbell","55 lb dumbbell","60 lb dumbbell"],"why":"your abs get crunches in Sculpt - this trains the deep waist muscles Sculpt never touches","media":{"imgA":"suitcase_carry_a.svg","imgB":"suitcase_carry_b.svg","credit":"drawn for this program"}},"seated_leg_curl":{"name":"Seated Leg Curl","setup":"Sit in the machine, pad on the back of your ankles, thigh pad snug.","how":"Curl your heels down and under you as far as they go, pause, return slowly.","feel":"Hamstrings, isolated.","cues":["Full squeeze at the bottom","Slow return","Toes pointed slightly up"],"ladder":["30 lb on the stack","40 lb on the stack","50 lb on the stack","60 lb on the stack","70 lb on the stack","80 lb on the stack","90 lb on the stack"],"why":"zero - hamstrings are Sculpt's most ignored muscle","media":{"imgA":"seated_leg_curl_a.jpg","imgB":"seated_leg_curl_b.jpg","credit":"free-exercise-db (public domain)"}},"leg_press":{"name":"Leg Press","setup":"Sit in the leg press, feet on the platform about hip-width, mid-platform height. (Machines vary - the number is the total weight showing, whether it's a pin stack or plates.)","how":"Lower the platform toward you until your knees are around 90 degrees or a bit deeper, then press away without slamming your knees straight.","feel":"Thighs and glutes. This machine is where you get to be impressively strong, fast.","cues":["Whole foot pushes, heels especially","Knees track over toes","Don't lock out hard at the top"],"ladder":["70 lb","90 lb","110 lb","130 lb","150 lb","170 lb","190 lb","210 lb","230 lb","250 lb","270 lb","290 lb"],"why":"chair pose is 0 lb - this is the loaded version, and the number will climb fast","media":{"imgA":"leg_press_a.jpg","imgB":"leg_press_b.jpg","credit":"free-exercise-db (public domain)"}},"hip_thrust":{"name":"Hip Thrust","setup":"Sit on the floor with your upper back against a bench, knees bent, feet flat. Weight sits on your hips (fold a mat or use the bar pad when you graduate to the barbell).","how":"Drive through your heels and lift your hips until your body is a flat tabletop from knees to shoulders. Squeeze at the top for a second, lower with control.","feel":"Glutes, almost exclusively. If your lower back complains, tuck your chin and think 'ribs down.'","cues":["Chin tucked, look at your knees","Squeeze the top like you're cracking a walnut","Shins vertical at the top"],"ladder":["25 lb dumbbell","30 lb dumbbell","35 lb dumbbell","40 lb dumbbell","empty barbell (45 lb)","barbell + 10 lb (55 lb)","barbell + 20 lb (65 lb)","barbell + 30 lb (75 lb)","barbell + 50 lb (95 lb)","barbell + 70 lb (115 lb)","barbell + 90 lb (135 lb)","barbell + 110 lb (155 lb)","barbell + 140 lb (185 lb)"],"progressNote":"When the page moves you from dumbbells to the barbell, ask your coach to walk you through the setup - it takes one session to feel natural and then it's your favorite lift.","why":"donkey kicks are a warm-up - this is the single best glute exercise that exists, with real weight","media":{"imgA":"hip_thrust_a.jpg","imgB":"hip_thrust_b.jpg","credit":"free-exercise-db (public domain)"}},"chest_supported_db_row":{"name":"Chest-Supported Dumbbell Row","setup":"Set a bench to about 45 degrees and lie face-down on it with a dumbbell in each hand hanging straight down.","how":"Row both dumbbells up toward your hips, squeezing your shoulder blades, then lower slowly. The bench holds your posture so your back muscles do all the work.","feel":"Mid and upper back.","cues":["Pull toward your hips, not your armpits","Squeeze for a beat at the top","Let your arms hang fully between reps"],"ladder":["15 lb dumbbells","20 lb dumbbells","25 lb dumbbells","30 lb dumbbells","35 lb dumbbells","40 lb dumbbells","45 lb dumbbells"],"why":"zero","media":{"imgA":"chest_supported_db_row_a.jpg","imgB":"chest_supported_db_row_b.jpg","credit":"free-exercise-db (public domain)"}},"incline_db_press":{"name":"Incline Dumbbell Press (neutral grip)","setup":"Bench at about 30-45 degrees. A dumbbell in each hand at shoulder level, palms facing each other.","how":"Press both dumbbells up and slightly together until your arms are long, then lower with control to shoulder level.","feel":"Chest and the front of your shoulders. This is your ONLY pressing of the week on purpose - Sculpt gives you plenty.","cues":["Palms face each other the whole time","Wrists stacked over elbows","Lower to a comfortable stretch, no bouncing"],"ladder":["10 lb dumbbells","12 lb dumbbells","15 lb dumbbells","20 lb dumbbells","25 lb dumbbells","30 lb dumbbells","35 lb dumbbells"],"why":"high - Sculpt hammers pressing, so this stays light and small on purpose. If your shoulders ever feel cranky, tell your coach","media":{"imgA":"incline_db_press_a.jpg","imgB":"incline_db_press_b.jpg","credit":"free-exercise-db (public domain)"}},"hip_abduction_machine":{"name":"Hip Abduction Machine","setup":"The seated machine where the pads sit outside your knees and you push outward.","how":"Push your knees apart against the pads, pause a second at the widest point, come back with control.","feel":"The sides of your glutes - the muscles that give the 'shelf' shape from the side.","cues":["Lean slightly forward for more glute","Pause at the top","Don't let the stack slam"],"ladder":["50 lb on the stack","60 lb on the stack","70 lb on the stack","80 lb on the stack","90 lb on the stack","100 lb on the stack","110 lb on the stack","120 lb on the stack"],"why":"fire hydrants, but with actual resistance","media":{"imgA":"hip_abduction_machine_a.jpg","imgB":"hip_abduction_machine_b.jpg","credit":"free-exercise-db (public domain)"}},"back_extension_45":{"name":"45-Degree Back Extension","setup":"Set the pad so it sits at the crease of your hips. Hook your heels in, cross your arms.","how":"Hinge down over the pad with a long back, then squeeze your glutes to bring your body back up to a straight line - no higher.","feel":"Glutes and hamstrings. Squeeze your glutes at the top and it's a glute exercise; that's the version you want.","cues":["Glutes lift you, not your lower back","Stop at straight - no banana","Slow and smooth"],"ladder":["just your bodyweight","10 lb dumbbell hugged to chest","15 lb dumbbell hugged to chest","20 lb dumbbell hugged to chest","25 lb dumbbell hugged to chest"],"why":"zero","media":{"imgA":"back_extension_45_a.jpg","imgB":"back_extension_45_b.jpg","credit":"free-exercise-db (public domain)"}},"db_reverse_lunge":{"name":"Dumbbell Reverse Lunge","setup":"Stand tall, dumbbells at your sides (or hands on hips for bodyweight).","how":"Step one foot back and lower until both knees are around 90 degrees, then push through the front heel to stand. All reps one side, then switch.","feel":"Front leg's glute and thigh. Cheerleader legs remember this pattern - you'll be good at it.","cues":["Front heel does the work","Torso tall, slight lean forward is fine","Soft, quiet back knee"],"ladder":["just your bodyweight","8 lb dumbbells","10 lb dumbbells","15 lb dumbbells","20 lb dumbbells","25 lb dumbbells","30 lb dumbbells"],"why":"Sculpt lunges are unloaded pulses - this is full range with real weight, kept to 2 sets so your legs don't hate you","media":{"imgA":"db_reverse_lunge_a.jpg","imgB":"db_reverse_lunge_b.jpg","credit":"free-exercise-db (public domain)"}},"lat_pulldown_neutral":{"name":"Lat Pulldown (neutral grip)","setup":"Same machine as Monday, but use the handle where your palms face each other (the V-handle or the close parallel grips).","how":"Pull the handle down to your upper chest, elbows tucking toward your ribs. Control it back up and let your arms fully lengthen.","feel":"Back and a bit more biceps than the wide grip. Palms-facing is usually the strongest grip - enjoy it.","cues":["Elbows to your back pockets","Tall chest","Full stretch at the top"],"ladder":["35 lb on the stack","40 lb on the stack","45 lb on the stack","50 lb on the stack","55 lb on the stack","60 lb on the stack","70 lb on the stack","80 lb on the stack","90 lb on the stack","100 lb on the stack","110 lb on the stack"],"why":"zero - all yours","media":{"imgA":"lat_pulldown_neutral_a.jpg","imgB":"lat_pulldown_neutral_b.jpg","credit":"free-exercise-db (public domain)"}},"one_arm_db_row":{"name":"One-Arm Dumbbell Row","setup":"Left knee and left hand on a bench, right foot on the floor, dumbbell in your right hand. Flat back, like a table.","how":"Row the dumbbell up to your hip, elbow skimming your side, then lower long and slow. All reps, then switch sides.","feel":"One side of your back at a time - you'll feel exactly what a row should feel like.","cues":["Elbow to hip pocket","No twisting - hips stay square","Full stretch at the bottom"],"ladder":["20 lb dumbbell","25 lb dumbbell","30 lb dumbbell","35 lb dumbbell","40 lb dumbbell","45 lb dumbbell","50 lb dumbbell","55 lb dumbbell","60 lb dumbbell"],"why":"zero","media":{"imgA":"one_arm_db_row_a.jpg","imgB":"one_arm_db_row_b.jpg","credit":"free-exercise-db (public domain)"}},"pallof_press":{"name":"Pallof Press","setup":"Set a cable to chest height, stand sideways to the machine, hold the handle with both hands at your chest, step out until the cable is taut.","how":"Press the handle straight out from your chest and hold for a breath - the cable will try to twist you toward the machine; don't let it. Pull back in. All reps, then face the other way.","feel":"Your entire midsection bracing quietly. This is the ab work that flattens and tightens - no crunching required (you get plenty of those in Sculpt).","cues":["Ribs down, glutes on","Press slow, hold two seconds","Don't lean away from the machine - resist the twist"],"ladder":["10 lb on the cable stack","15 lb on the cable stack","20 lb on the cable stack","25 lb on the cable stack","30 lb on the cable stack","35 lb on the cable stack"],"why":"the anti-crunch: trains the deep corset muscles Sculpt's ab block misses","media":{"imgA":"pallof_press_a.jpg","imgB":"pallof_press_b.jpg","credit":"free-exercise-db (public domain)"}},"db_step_up":{"name":"Dumbbell Step-Up","setup":"A knee-height bench or box, dumbbells at your sides.","how":"Step up with one foot and drive through that heel to stand fully on the box - try not to push off the bottom leg. Step down with control. All reps, then switch.","feel":"Glute and thigh of the working leg.","cues":["Top leg does everything","Control the way down","Stand all the way up at the top"],"ladder":["10 lb dumbbells","15 lb dumbbells","20 lb dumbbells","25 lb dumbbells","30 lb dumbbells"],"why":"low","media":{"imgA":"db_step_up_a.jpg","imgB":"db_step_up_b.jpg","credit":"free-exercise-db (public domain)"}}},"guide":{"intro":["Twelve weeks. Three ~40-minute gym sessions a week, always laid out exactly - the exercise, the sets, the reps, the weight to grab. Your classes stay yours; Sundays are always fully off.","This program was built for exactly one person. Every choice in it traces back to you: what you already do three times a week, what you want to change, and how you actually live."],"sections":[{"id":"why-gym-days","tag":"plan","title":"Why your gym days look like this","body":["You'll notice what's missing: no crunches, no bicep curls, no shoulder raises, almost no pressing. That's not an oversight - your Sculpt classes already deliver all of that in serious volume, three times a week, and doing it twice would just be extra soreness with nothing to show for it.","So your gym time goes to what classes can't do: heavy legs, real glute loading, and the back strength that changes how you stand and how everything fits. Light weights for lots of reps you already have; the gym is where the weights actually climb."]},{"id":"getting-stronger","tag":"stronger","title":"How you get stronger","body":["Every exercise has a ladder of weights and an exact rep count - no ranges, no deciding. You start at a friendly rung, and the page moves you up when you're ready: when you tap 'too easy', or automatically after you've owned a weight for three sessions. If something feels like a grind, tap 'felt heavy' and the next session hands you one step lighter. The reps stay the same; the weight is the dial.","Week one is two sets of everything on purpose: it's for learning the movements and finding your real starting weights. In week two, two machines get one special 'as many good reps as you can' set - most people discover they're stronger than they thought, and the weights get corrected up.","Expect most of your working weights to roughly double over the twelve weeks. That's not hype - it's what reliably happens when someone strong-but-new starts lifting with a plan."]},{"id":"when-youll-notice","tag":"stronger","title":"When you'll notice","body":["The order is always the same: first the weights move (weeks 2-4), then clothes and posture (somewhere in the middle), then the mirror catches up (weeks 8-12). If you're at week 3 and the mirror hasn't noticed yet, nothing is wrong - you are exactly on schedule, and the numbers on your ladders are the proof it's working.","The page never asks you to weigh, measure, or photograph anything. Strength, sessions, and how you feel are the scoreboard here."]},{"id":"missed-days","tag":"life","title":"Missed days","body":["You will miss days. That's not a prediction about you - it's true of everyone, and this program was built expecting it. Missed workouts are deleted, never owed: there are no make-ups, no falling behind, and nothing here ever counts what you didn't do.","If you're away more than a week, the page automatically hands you a lighter welcome-back workout designed to feel good, and your session count picks up right where it left off. It only ever goes up. The workout after a break is the hardest one in fitness - which is why it gets the biggest celebration."]},{"id":"sculpt-classes","tag":"classes","title":"Your Sculpt classes","body":["Your classes are not extra - they are half of this program. Three times a week they give you what a gym floor can't: a room full of energy, an instructor's voice, hundreds of reps, and the kind of sweat that clears your head. The plan never schedules them because that freedom is the point - you book whichever times fit your week, then log them in the app with one tap.","The gym days are designed around your classes on purpose. Classes press, pulse, and crunch - so the gym doesn't. The gym loads your legs, glutes, and back with real weight - which classes can't. Neither one repeats the other; together they cover everything.","One habit that makes both better: water with electrolytes after every class. The heated room takes more out of you than it feels like, and replacing it is what makes the next morning's lift feel strong."]},{"id":"sundays","tag":"life","title":"Sundays","body":["Always off. Every single week. Rest is when your body actually builds what you trained for - a full day off isn't a break from the program, it is the program."]}],"coach":{"title":"Your coach - the other half of this","intro":["This page is for the gym. Your coach - the chat that lives in the macy-coach folder on your Mac - is for everything else. Open the folder, open the chat, say anything in your own words. It already knows your whole plan and everything you have logged here, so you never have to explain yourself.","No commands, no magic words. Tap any of these to see what to say. Tap the quote itself and it copies, so you can paste it straight in."],"spotlight":{"emoji":"🗓️","title":"Sunday night, two minutes","when":"The habit that makes the whole week easy: your days, your times, anything that needs to move.","say":"ok what does this week look like"},"firstWeeksTitle":"New here? Start with these three","firstWeeks":["sunday","moved","dontwant"],"groups":[{"id":"notfeeling","emoji":"😮‍💨","title":"When you are not feeling it","peek":"no motivation · no time","rows":[{"id":"dontwant","emoji":"🛋️","title":"You do not want to go","when":"Wiped, sore, or just not in the mood. Have this conversation instead of skipping - it usually ends with a smaller version, not a lecture.","say":"honestly i really do not want to go tonight"},{"id":"notime","emoji":"⏱️","title":"You have got 25 minutes","when":"A short version of today that keeps the parts that actually matter. It counts exactly the same.","say":"i have got like 25 min tops today, what do i do"}]},{"id":"weekmoves","emoji":"📅","title":"When the week moves","peek":"one day · a whole trip","rows":[{"id":"moved","emoji":"🔀","title":"A day stopped working","when":"Something landed on a lifting day, or you skipped one and want it later this week. This page updates itself.","say":"friday is not happening, can i lift saturday instead"},{"id":"travel","emoji":"✈️","title":"You are going out of town","when":"Tell it the dates and what you will have. Short travel workouts land on this page before you leave, and your normal plan comes back on its own.","say":"i am gone tues to fri, the hotel gym has dumbbells and that is it"}]},{"id":"morethanaday","emoji":"🌊","title":"When it is more than one day","peek":"everything is heavy · you have been gone","rows":[{"id":"heavy","emoji":"🌊","title":"Everything is heavy right now","when":"A brutal stretch, barely sleeping, running on fumes. Your training gets turned down for a while instead of off.","say":"i have barely slept all week and everything feels like a lot rn"},{"id":"back","emoji":"🌤️","title":"You have been away a while","when":"No explaining, no catching up, nothing owed. Say hi and today is already built to feel good.","say":"hey i am back"}]},{"id":"wonder","emoji":"💭","title":"Stuff you will wonder about","peek":"felt weird · hate an exercise · cannot see it yet · why is it like this","rows":[{"id":"weird","emoji":"🤨","title":"That felt weird","when":"You did the thing but felt it in the wrong place, or your balance was strange. Describe it and you will get the one cue that fixes it.","say":"i felt hip thrusts in my quads instead of my butt?? what am i doing wrong"},{"id":"dread","emoji":"🔁","title":"An exercise you dread","when":"If you hate one, it is costing more than it is giving. There is always a swap that does the same job.","say":"i cannot with the leg press anymore, give me literally anything else"},{"id":"cantsee","emoji":"📈","title":"You cannot see it yet","when":"Week 3 and the mirror is not talking. Your coach has every number you have actually put up - that is the part that moves first.","say":"is this actually doing anything, i cannot tell"},{"id":"anything","emoji":"💬","title":"Anything else","when":"Why your plan looks like this, what a machine is called, whether something counts. There are no wrong questions here.","say":"wait why are there no crunches in my plan"}]}],"bigger":{"note":"These are longer conversations - they use more of Claude's energy for the day, so save them for late at night or early in the morning, one at a time.","items":[{"title":"Monthly recap","when":"Once a month: your real numbers turned into something worth screenshotting.","say":"gimme my wrapped"},{"title":"Check-in","when":"Around week 4 and week 8, or whenever things feel off - the conversation that retunes the whole plan.","say":"can we do a check-in, i want to talk through some stuff"},{"title":"Life changed","when":"New job, new hours - the whole rotation gets rebuilt around your new week.","say":"i got a job!! my whole week is different now"},{"title":"The next chapter","when":"Once, at the end of week 12: everything you built becomes the start of a brand-new program.","say":"i am almost done with the 12 weeks, what happens next"}]},"utility":{"emoji":"🛠️","title":"This page looks wrong","when":"You changed something with your coach and this page still shows the old version. Two-minute fix.","say":"my page is not updating, it still says the old thing"}}},"copy":{"howItWorks":["Every workout tells you exactly what to do: the exercise, the sets, the reps, and the exact weight to grab. No deciding, no guessing.","Your lifting days move around week to week on purpose - the page always knows which days are yours, so you never have to remember. Sundays are always fully off.","Tap the circle after every set - it fills up as you go and turns green when the exercise is done. On class days, one tap logs your Sculpt. That's the whole job.","Getting stronger happens on a schedule: your weights start moving around week 2-4, and the mirror catches up around week 8-12. If you're at week 3 and don't see it yet - that is exactly on schedule.","The session counter only goes up. There is no streak to break. Ever."],"week1Note":"This week is 2 sets of everything and the weights are starting guesses. If a weight feels easy, tap 'too easy' - if it feels like a grind, tap 'felt heavy' - and the page hands you the right one next time. Finishing is the whole win this week.","amrapNote":"Special set today: on the last set, do as many good reps as you can - stop when the next rep would get ugly. This teaches you what 'working hard' actually feels like, and it's usually more than you think.","welcomeBackTitle":"Welcome back. This one's built to feel good.","welcomeBackNote":"Life happened - that's allowed, and it didn't undo anything. The research is actually clear on this: missing days doesn't erase a habit. Today is a lighter version so you walk out feeling strong, not sore. The counter picks up right where it left off.","welcomeBackDone":"THAT is the hardest workout in this whole program - the one after a break. You just did it. Everything from here is momentum.","classCelebrations":["Class {c} logged. Your classes are half the program - and you keep showing up for them.","That's {c} classes. The room's energy plus your gym days - that's the whole formula working.","Class {c} in the books. Sweat now, strut later."],"celebrations":["Session {n} in the books. That number never goes down.","Done. You showed up and did every bit of it.","That's {n} sessions of telling your own body what's up.","Finished. Somewhere in there you got a little stronger than yesterday.","Session {n} done. Consistency looks good on you.","Logged. Nobody handed you that one.","That's {n}. You are officially a person who lifts.","Done, and done properly. Every set of it.","Session {n}. The version of you from six weeks ago is watching this.","Finished. Go drink some water and feel smug about it.","{n} sessions deep. This stopped being an experiment a while ago.","That's the whole thing. Every rep you said you'd do.","Done. Your legs will mention this tomorrow and you'll enjoy it.","Session {n}. Showing up on a normal Tuesday is the entire secret.","Complete. Nothing about that was luck.","{n}. You keep doing the thing you said you'd struggle with.","That's a wrap. Strong is just a stack of days like this one.","Finished. You didn't feel like it and you did it anyway - that's the good one.","Session {n} logged. Quietly excellent.","Done. Somewhere your future self just got a little easier to be."],"bumpUp":"You maxed out the reps last time - today you go up. New weight below. This is what progress literally looks like.","dropDown":"Lighter today - exactly the right call. Sharp reps at a weight you own beat grinding every time.","dailyLines":{"climbToday":"Today the {ex} goes to {weight}. First time at that weight.","climbNext":"Finish today and the {ex} climbs next time.","firstEver":"First one ever. Two sets of everything - the only job today is finishing.","liftPlain":"{sets} × {reps} of {ex} at {weight} today. You started at {from}.","liftToday":"{session} today. About forty minutes.","classDay":"Class day. Nothing to carry but yourself.","restDay":"Nothing today, on purpose.","nextUp":" Next up {day}: {session}.","milestoneNear":"One more and it's {count} workouts."},"shortNudge":"Not feeling it tonight?","shortCard":{"title":"The short version","body":"The three that matter most, two sets each. Fifteen minutes, maybe twenty.","note":"It counts exactly the same - same checkmark, same number, nothing missing. Nothing on this page will ever know the difference.","button":"Do the short one tonight","undo":"Actually, give me the whole thing"},"startedAt":"You started at {from}.","lastSet":"Last one. Make it the best-looking rep of the day.","feelPrompt":"How'd that one go?","dayZero":{"title":"Before Monday: a five-minute walk-through","intro":"Go down to the gym with no plan to work out. Find these five things, tap them off, and come back upstairs. That's the whole assignment.","items":["The dumbbell rack - where the 15s, 20s and 25s live","The leg press","The lat pulldown (and its thigh pads)","A bench you can set your shoulders against","The cable machine"],"note":"Nobody down there is looking at you, and you don't have to touch anything. This is just so Monday isn't the first time you've seen the room.","done":"That's the room handled. Monday you walk in already knowing where everything is - which is the part most people never get."},"sundayExtra":"Week {week} of 12 done.","sundayCoachLine":"Sunday-night move: ask your coach on the Mac, \"What's my week look like?\" Two minutes tonight and next week runs itself."},"letters":[],"lettersMeta":{"title":"Letters","intro":"These show up on their own. You don't have to do anything.","from":"For you"},"photos":{"header":[],"rest":[],"celebrate":[]}};
+var DATA = {"meta":{"pageTitle":"Macy's Coach","programWeeks":12,"startDate":"2026-08-03","welcomeBack":{"afterDaysAway":7,"sets":2,"skipOptional":true,"skipAmrap":true},"sync":{"endpoint":"https://macy-sync.mg-coach-sync.workers.dev/s/9e7bf3f92433cf9ff805ee8bc0aaea8d"},"demoMode":false,"version":1,"overrides":{},"rungSet":{},"steady":{"on":false,"since":null,"until":null,"setsCap":2,"restMultiplier":1.25,"skipOptional":true,"skipAmrap":true,"label":"Steady weeks","headline":"Steady weeks - holding, not climbing","note":"For this stretch the plan holds your weights where they are, trims a set, and gives you longer rests. Everything you built stays built. If something feels easy, tap 'too easy' - that still moves you up, any day you want it.","guideBody":["Sometimes the right move is to protect what you've built instead of chasing more. That's what these weeks are: the same exercises, the same weights you already own, one less set, longer rests, and the automatic climbs paused.","Nothing is being taken away and nothing resets. Your session count keeps going up, your ladders stay exactly where they are, and the 'too easy' tap still works on any exercise on any day. When steady weeks end, the climb clock starts fresh from that day - there's no surprise jump waiting for you."],"endedNote":"Steady weeks are done. Same weights you finished on, full sets back, and the automatic climbs start counting again from today."},"buildTag":"84ff4e8"},"scheduleByWeek":[{"week":1,"days":{"monday":"liftB","tuesday":"open","wednesday":"liftA","thursday":"liftC","friday":"open","saturday":"rest","sunday":"rest"}},{"week":2,"days":{"monday":"liftA","tuesday":"liftB","wednesday":"open","thursday":"liftC","friday":"open","saturday":"rest","sunday":"rest"}},{"week":3,"days":{"monday":"liftB","tuesday":"open","wednesday":"liftC","thursday":"liftA","friday":"open","saturday":"rest","sunday":"rest"}},{"week":4,"days":{"monday":"liftC","tuesday":"liftA","wednesday":"open","thursday":"liftB","friday":"open","saturday":"rest","sunday":"rest"}},{"week":5,"days":{"monday":"liftC","tuesday":"open","wednesday":"liftB","thursday":"liftA","friday":"open","saturday":"rest","sunday":"rest"}},{"week":6,"days":{"monday":"liftB","tuesday":"liftA","wednesday":"open","thursday":"liftC","friday":"open","saturday":"rest","sunday":"rest"}},{"week":7,"days":{"monday":"liftB","tuesday":"open","wednesday":"liftA","thursday":"liftC","friday":"open","saturday":"rest","sunday":"rest"}},{"week":8,"days":{"monday":"liftA","tuesday":"liftC","wednesday":"open","thursday":"liftB","friday":"open","saturday":"rest","sunday":"rest"}},{"week":9,"days":{"monday":"liftC","tuesday":"open","wednesday":"liftA","thursday":"liftB","friday":"open","saturday":"rest","sunday":"rest"}},{"week":10,"days":{"monday":"liftC","tuesday":"liftA","wednesday":"open","thursday":"liftB","friday":"open","saturday":"rest","sunday":"rest"}},{"week":11,"days":{"monday":"liftC","tuesday":"open","wednesday":"liftB","thursday":"liftA","friday":"open","saturday":"rest","sunday":"rest"}},{"week":12,"days":{"monday":"liftB","tuesday":"liftA","wednesday":"open","thursday":"liftC","friday":"open","saturday":"rest","sunday":"rest"}}],"blocks":[{"name":"Foundation","weeks":[1,4],"focus":"Learn the movements, calibrate your weights, climb the reps. Week 1 is 2 sets of everything on purpose - finish feeling like you had more."},{"name":"Build","weeks":[5,8],"focus":"The weights start climbing for real. Barbell hip thrusts are yours now. This is where strength you can feel shows up."},{"name":"Strong","weeks":[9,12],"focus":"Heavier and more confident. Your big lifts drop to fewer reps at heavier weight because you can handle it now. Optional finishers if you want them."}],"progression":{"type":"steady_climb","rule":"Every third time you finish an exercise, the page moves you up one step to the next weight. Feel ready sooner? Tap 'too easy' and it moves you up next session instead. Something felt like a grind? Tap 'felt heavy' and next session hands you one step lighter.","amrapWeek":2},"sessions":{"liftA":{"title":"Legs + Back","blurb":"Built around the hinge - the movement your classes never load. Romanian deadlifts wake up your hamstrings, the goblet squat loads your legs for real, and the pulldown-row pair builds the upper-back strength that makes posture effortless. The suitcase carry is ab work that doesn't look like ab work.","restDefaultSeconds":90,"warmup":"4-5 easy minutes on the bike or incline treadmill, then your first exercise's first set counts as part of the warm-up - take it smooth.","shortVersion":{"keep":[0,1,2],"sets":2},"exercises":[{"exerciseId":"goblet_squat","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"block3Count":8,"ladderStart":"25 lb dumbbell","restSeconds":120},{"exerciseId":"db_rdl","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"ladderStart":"15 lb dumbbells","restSeconds":120},{"exerciseId":"lat_pulldown_wide","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"ladderStart":"50 lb on the stack","amrapCalibration":true,"restSeconds":90},{"exerciseId":"seated_cable_row","sets":3,"week1Sets":2,"work":{"type":"reps","count":12},"ladderStart":"40 lb on the stack","restSeconds":90},{"exerciseId":"suitcase_carry","sets":3,"week1Sets":2,"work":{"type":"time","seconds":30,"perSide":true},"ladderStart":"25 lb dumbbell","restSeconds":60}],"optionalFinisher":{"exerciseId":"seated_leg_curl","weeks":[9,12],"sets":2,"work":{"type":"reps","count":12},"ladderStart":"40 lb on the stack","restSeconds":60}},"liftB":{"title":"Glutes + Upper Back","blurb":"Glutes get their flagship lift - the hip thrust - plus the leg press, the machine where your numbers climb fastest and being strong feels obvious. Pressing sits in the middle of the session now, while you're fresh enough to move real weight.","restDefaultSeconds":90,"warmup":"4-5 easy minutes on the bike or incline treadmill, then take your first leg press set smooth as a ramp-in.","shortVersion":{"keep":[0,1,3],"sets":2},"exercises":[{"exerciseId":"leg_press","sets":3,"week1Sets":2,"work":{"type":"reps","count":12},"block3Count":10,"ladderStart":"110 lb","amrapCalibration":true,"restSeconds":120},{"exerciseId":"hip_thrust","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"block3Count":8,"ladderStart":"25 lb dumbbell","restSeconds":120},{"exerciseId":"incline_db_press","sets":3,"week1Sets":2,"work":{"type":"reps","count":8},"ladderStart":"12 lb dumbbells","note":"If there are no 12s, grab the 10s.","restSeconds":90},{"exerciseId":"chest_supported_db_row","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"ladderStart":"15 lb dumbbells","restSeconds":90},{"exerciseId":"hip_abduction_machine","sets":2,"week1Sets":2,"work":{"type":"reps","count":12},"ladderStart":"50 lb on the stack","restSeconds":60}],"optionalFinisher":{"exerciseId":"back_extension_45","weeks":[9,12],"sets":2,"work":{"type":"reps","count":12},"ladderStart":"just your bodyweight","restSeconds":60}},"liftC":{"title":"Glutes + Legs + Back","blurb":"Hip thrusts lead again (they climb fastest of anything you do), lunges bring back cheerleader legs, and a double dose of back work rounds it out. The anti-twist core finisher tightens your middle without a single crunch - you get plenty of those in class.","restDefaultSeconds":90,"warmup":"4-5 easy minutes on the bike or incline treadmill, then one smooth lighter set of hip thrusts before your working sets.","shortVersion":{"keep":[0,2,3],"sets":2},"exercises":[{"exerciseId":"hip_thrust","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"block3Count":8,"ladderStart":"25 lb dumbbell","restSeconds":120},{"exerciseId":"db_reverse_lunge","sets":2,"week1Sets":2,"work":{"type":"reps","count":8,"perSide":true},"ladderStart":"just your bodyweight","restSeconds":90},{"exerciseId":"lat_pulldown_neutral","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"ladderStart":"50 lb on the stack","restSeconds":90},{"exerciseId":"db_shoulder_press_seated","sets":3,"week1Sets":2,"work":{"type":"reps","count":10},"block3Count":8,"ladderStart":"10 lb dumbbells","restSeconds":90},{"exerciseId":"pallof_press","sets":2,"week1Sets":2,"work":{"type":"reps","count":10,"perSide":true},"ladderStart":"15 lb on the cable stack","restSeconds":60}],"optionalFinisher":{"exerciseId":"db_step_up","weeks":[9,12],"sets":2,"work":{"type":"reps","count":8,"perSide":true},"ladderStart":"10 lb dumbbells","restSeconds":60}},"open":{"title":"Class Day","card":"No weights today - this is a class day. Your classes are half this program: the sweat, the reps, the room. Book whichever time works and log it here after.","noClassNote":"No class today? Totally fine - the schedule flexes, and a walk counts. Nothing here is owed and nothing is behind.","logButton":"I went to Sculpt 🔥","loggedTitle":"Class logged.","effortPrompt":"How'd it go?","efforts":[{"id":"chill","emoji":"😌","label":"chill"},{"id":"solid","emoji":"😅","label":"solid"},{"id":"melted","emoji":"🥵","label":"melted"}],"hydrationNote":"Now the important part: a big glass of water with a pinch of salt or an electrolyte packet. You sweat way more in there than it feels like - tomorrow's workout will thank you.","eveningNote":"If it was an evening class, a cool shower helps you wind down for sleep."},"rest":{"title":"Rest Day","card":"Fully off, on purpose. Rest is when your body actually builds the muscle you worked for this week. Walk, stretch, see people, sleep in a little. You earned this one."}},"exercises":{"goblet_squat":{"name":"Goblet Squat","setup":"Hold one dumbbell vertically against your chest with both hands, like you're hugging it. Feet a little wider than hips, toes turned out slightly.","how":"Sit straight down between your legs - as deep as feels comfortable - then stand back up. Chest stays proud the whole time.","feel":"Thighs and glutes. The dumbbell hug keeps your back happy.","cues":["Chest up, elbows inside your knees","Whole foot stays flat","Stand up like you mean it"],"ladder":["15 lb dumbbell","20 lb dumbbell","25 lb dumbbell","30 lb dumbbell","35 lb dumbbell","40 lb dumbbell","45 lb dumbbell","50 lb dumbbell","55 lb dumbbell","60 lb dumbbell"],"why":"quads get volume in Sculpt, but never with real load - this is the load","media":{"imgA":"goblet_squat_a.jpg","imgB":"goblet_squat_b.jpg","credit":"free-exercise-db (public domain)"}},"db_rdl":{"name":"Dumbbell Romanian Deadlift","setup":"A dumbbell in each hand resting on the front of your thighs. Feet hip-width, soft bend in the knees.","how":"Push your hips straight back (like closing a car door with your butt) and let the dumbbells slide down your thighs to about mid-shin. Then drive your hips forward to stand tall.","feel":"The whole back of your legs - hamstrings stretching on the way down, glutes finishing at the top.","cues":["Hips go back, not down","Dumbbells stay close - practically touching your legs","Flat back, long spine"],"ladder":["15 lb dumbbells","20 lb dumbbells","25 lb dumbbells","30 lb dumbbells","35 lb dumbbells","40 lb dumbbells","45 lb dumbbells","50 lb dumbbells"],"why":"none - Sculpt never loads your hamstrings. This is all yours","media":{"imgA":"db_rdl_a.jpg","imgB":"db_rdl_b.jpg","credit":"free-exercise-db (public domain)"}},"lat_pulldown_wide":{"name":"Lat Pulldown (wide grip)","setup":"Sit at the lat pulldown machine, thighs snug under the pads. Grab the wide bar a bit outside your shoulders.","how":"Pull the bar down to the top of your chest while your elbows drive down and back. Let it rise back up with control - get a big stretch at the top.","feel":"The sides of your back, like wings. A little biceps is fine.","cues":["Pull with your elbows, not your hands","Chest up to meet the bar","Slow on the way up"],"ladder":["35 lb on the stack","40 lb on the stack","45 lb on the stack","50 lb on the stack","55 lb on the stack","60 lb on the stack","70 lb on the stack","80 lb on the stack","90 lb on the stack","100 lb on the stack","110 lb on the stack"],"why":"zero - Sculpt has no real pulling. This builds the back that makes waists look snatched","media":{"imgA":"lat_pulldown_wide_a.jpg","imgB":"lat_pulldown_wide_b.jpg","credit":"free-exercise-db (public domain)"}},"lat_pulldown_neutral":{"name":"Lat Pulldown (neutral grip)","setup":"Same machine as Monday, but use the handle where your palms face each other (the V-handle or the close parallel grips).","how":"Pull the handle down to your upper chest, elbows tucking toward your ribs. Control it back up and let your arms fully lengthen.","feel":"Back and a bit more biceps than the wide grip. Palms-facing is usually the strongest grip - enjoy it.","cues":["Elbows to your back pockets","Tall chest","Full stretch at the top"],"ladder":["35 lb on the stack","40 lb on the stack","45 lb on the stack","50 lb on the stack","55 lb on the stack","60 lb on the stack","70 lb on the stack","80 lb on the stack","90 lb on the stack","100 lb on the stack","110 lb on the stack"],"why":"zero - all yours","media":{"imgA":"lat_pulldown_neutral_a.jpg","imgB":"lat_pulldown_neutral_b.jpg","credit":"free-exercise-db (public domain)"}},"seated_cable_row":{"name":"Seated Cable Row","setup":"Sit at the cable row, feet on the plates, knees soft. Grab the V-handle and sit tall with arms long.","how":"Pull the handle to your belly button, squeezing your shoulder blades together. Let it return slowly until your arms are long again.","feel":"The middle of your back, between the shoulder blades.","cues":["Shoulder blades pinch together","Sit tall - no leaning way back","Slow return"],"ladder":["30 lb on the stack","35 lb on the stack","40 lb on the stack","45 lb on the stack","50 lb on the stack","55 lb on the stack","60 lb on the stack","70 lb on the stack","80 lb on the stack","90 lb on the stack"],"why":"Sculpt's 5 lb rows don't count - this is where posture gets built","media":{"imgA":"seated_cable_row_a.jpg","imgB":"seated_cable_row_b.jpg","credit":"free-exercise-db (public domain)"}},"suitcase_carry":{"name":"Suitcase Carry","setup":"One heavy-ish dumbbell in one hand, hanging at your side like a suitcase. Stand tall.","how":"Walk 30 seconds tall and controlled - the weight will try to tip you sideways; don't let it. Switch hands, walk back.","feel":"Your side abs and grip, working overtime to keep you perfectly upright. This is ab work that doesn't look like ab work.","cues":["Shoulders level - don't lean","Walk like there's a book on your head","Squeeze the handle hard"],"ladder":["25 lb dumbbell","30 lb dumbbell","35 lb dumbbell","40 lb dumbbell","45 lb dumbbell","50 lb dumbbell","55 lb dumbbell","60 lb dumbbell"],"why":"your abs get crunches in Sculpt - this trains the deep waist muscles Sculpt never touches","media":{"imgA":"suitcase_carry_a.jpg","imgB":"suitcase_carry_a.jpg","credit":"free-exercise-db (public domain)"}},"leg_press":{"name":"Leg Press","setup":"Sit in the leg press, feet on the platform about hip-width, mid-platform height. (Machines vary - the number is the total weight showing, whether it's a pin stack or plates.)","how":"Lower the platform toward you until your knees are around 90 degrees or a bit deeper, then press away without slamming your knees straight.","feel":"Thighs and glutes. This machine is where you get to be impressively strong, fast.","cues":["Whole foot pushes, heels especially","Knees track over toes","Don't lock out hard at the top"],"ladder":["70 lb","90 lb","110 lb","130 lb","150 lb","170 lb","190 lb","210 lb","230 lb","250 lb","270 lb","290 lb"],"why":"chair pose is 0 lb - this is the loaded version, and the number will climb fast","media":{"imgA":"leg_press_a.jpg","imgB":"leg_press_b.jpg","credit":"free-exercise-db (public domain)"}},"hip_thrust":{"name":"Hip Thrust","setup":"Sit on the floor with your upper back against a bench, knees bent, feet flat. Weight sits on your hips (fold a mat or use the bar pad when you graduate to the barbell).","how":"Drive through your heels and lift your hips until your body is a flat tabletop from knees to shoulders. Squeeze at the top for a second, lower with control.","feel":"Glutes, almost exclusively. If your lower back complains, tuck your chin and think 'ribs down.'","cues":["Chin tucked, look at your knees","Squeeze the top like you're cracking a walnut","Shins vertical at the top"],"ladder":["25 lb dumbbell","30 lb dumbbell","35 lb dumbbell","40 lb dumbbell","empty barbell (45 lb)","barbell + 10 lb (55 lb)","barbell + 20 lb (65 lb)","barbell + 30 lb (75 lb)","barbell + 50 lb (95 lb)","barbell + 70 lb (115 lb)","barbell + 90 lb (135 lb)","barbell + 110 lb (155 lb)","barbell + 140 lb (185 lb)"],"progressNote":"When the page moves you from dumbbells to the barbell, ask your coach to walk you through the setup - it takes one session to feel natural and then it's your favorite lift.","why":"donkey kicks are a warm-up - this is the single best glute exercise that exists, with real weight","media":{"imgA":"hip_thrust_a.jpg","imgB":"hip_thrust_b.jpg","credit":"free-exercise-db (public domain)"}},"chest_supported_db_row":{"name":"Chest-Supported Dumbbell Row","setup":"Set a bench to about 45 degrees and lie face-down on it with a dumbbell in each hand hanging straight down.","how":"Row both dumbbells up toward your hips, squeezing your shoulder blades, then lower slowly. The bench holds your posture so your back muscles do all the work.","feel":"Mid and upper back.","cues":["Pull toward your hips, not your armpits","Squeeze for a beat at the top","Let your arms hang fully between reps"],"ladder":["15 lb dumbbells","20 lb dumbbells","25 lb dumbbells","30 lb dumbbells","35 lb dumbbells","40 lb dumbbells","45 lb dumbbells"],"why":"zero","media":{"imgA":"chest_supported_db_row_a.jpg","imgB":"chest_supported_db_row_b.jpg","credit":"free-exercise-db (public domain)"}},"incline_db_press":{"name":"Incline Dumbbell Press (neutral grip)","setup":"Bench at about 30-45 degrees. A dumbbell in each hand at shoulder level, palms facing each other.","how":"Press both dumbbells up and slightly together until your arms are long, then lower with control to shoulder level.","feel":"Chest and the front of your shoulders. One of two pressing days now - your classes press light, this one climbs.","cues":["Palms face each other the whole time","Wrists stacked over elbows","Lower to a comfortable stretch, no bouncing"],"ladder":["10 lb dumbbells","12 lb dumbbells","15 lb dumbbells","20 lb dumbbells","25 lb dumbbells","30 lb dumbbells","35 lb dumbbells"],"why":"moderate - Sculpt presses at 3-5 lb, which stops building at some point; this is the one that keeps going","media":{"imgA":"incline_db_press_a.jpg","imgB":"incline_db_press_b.jpg","credit":"free-exercise-db (public domain)"}},"hip_abduction_machine":{"name":"Hip Abduction Machine","setup":"The seated machine where the pads sit outside your knees and you push outward.","how":"Push your knees apart against the pads, pause a second at the widest point, come back with control.","feel":"The sides of your glutes - the muscles that give the 'shelf' shape from the side.","cues":["Lean slightly forward for more glute","Pause at the top","Don't let the stack slam"],"ladder":["50 lb on the stack","60 lb on the stack","70 lb on the stack","80 lb on the stack","90 lb on the stack","100 lb on the stack","110 lb on the stack","120 lb on the stack"],"why":"fire hydrants, but with actual resistance","media":{"imgA":"hip_abduction_machine_a.jpg","imgB":"hip_abduction_machine_b.jpg","credit":"free-exercise-db (public domain)"}},"db_reverse_lunge":{"name":"Dumbbell Reverse Lunge","setup":"Stand tall, dumbbells at your sides (or hands on hips for bodyweight).","how":"Step one foot back and lower until both knees are around 90 degrees, then push through the front heel to stand. All reps one side, then switch.","feel":"Front leg's glute and thigh. Cheerleader legs remember this pattern - you'll be good at it.","cues":["Front heel does the work","Torso tall, slight lean forward is fine","Soft, quiet back knee"],"ladder":["just your bodyweight","8 lb dumbbells","10 lb dumbbells","15 lb dumbbells","20 lb dumbbells","25 lb dumbbells","30 lb dumbbells"],"why":"Sculpt lunges are unloaded pulses - this is full range with real weight, kept to 2 sets so your legs don't hate you","media":{"imgA":"db_reverse_lunge_a.jpg","imgB":"db_reverse_lunge_b.jpg","credit":"free-exercise-db (public domain)"}},"one_arm_db_row":{"name":"One-Arm Dumbbell Row","setup":"Left knee and left hand on a bench, right foot on the floor, dumbbell in your right hand. Flat back, like a table.","how":"Row the dumbbell up to your hip, elbow skimming your side, then lower long and slow. All reps, then switch sides.","feel":"One side of your back at a time - you'll feel exactly what a row should feel like.","cues":["Elbow to hip pocket","No twisting - hips stay square","Full stretch at the bottom"],"ladder":["20 lb dumbbell","25 lb dumbbell","30 lb dumbbell","35 lb dumbbell","40 lb dumbbell","45 lb dumbbell","50 lb dumbbell","55 lb dumbbell","60 lb dumbbell"],"why":"zero","media":{"imgA":"one_arm_db_row_a.jpg","imgB":"one_arm_db_row_b.jpg","credit":"free-exercise-db (public domain)"}},"pallof_press":{"name":"Pallof Press","setup":"Set a cable to chest height, stand sideways to the machine, hold the handle with both hands at your chest, step out until the cable is taut.","how":"Press the handle straight out from your chest and hold for a breath - the cable will try to twist you toward the machine; don't let it. Pull back in. All reps, then face the other way.","feel":"Your entire midsection bracing quietly. This is the ab work that flattens and tightens - no crunching required (you get plenty of those in Sculpt).","cues":["Ribs down, glutes on","Press slow, hold two seconds","Don't lean away from the machine - resist the twist"],"ladder":["10 lb on the cable stack","15 lb on the cable stack","20 lb on the cable stack","25 lb on the cable stack","30 lb on the cable stack","35 lb on the cable stack"],"why":"the anti-crunch: trains the deep corset muscles Sculpt's ab block misses","media":{"imgA":"pallof_press_a.jpg","imgB":"pallof_press_b.jpg","credit":"free-exercise-db (public domain)"}},"seated_leg_curl":{"name":"Seated Leg Curl","setup":"Sit in the machine, pad on the back of your ankles, thigh pad snug.","how":"Curl your heels down and under you as far as they go, pause, return slowly.","feel":"Hamstrings, isolated.","cues":["Full squeeze at the bottom","Slow return","Toes pointed slightly up"],"ladder":["30 lb on the stack","40 lb on the stack","50 lb on the stack","60 lb on the stack","70 lb on the stack","80 lb on the stack","90 lb on the stack"],"why":"zero - hamstrings are Sculpt's most ignored muscle","media":{"imgA":"seated_leg_curl_a.jpg","imgB":"seated_leg_curl_b.jpg","credit":"free-exercise-db (public domain)"}},"back_extension_45":{"name":"45-Degree Back Extension","setup":"Set the pad so it sits at the crease of your hips. Hook your heels in, cross your arms.","how":"Hinge down over the pad with a long back, then squeeze your glutes to bring your body back up to a straight line - no higher.","feel":"Glutes and hamstrings. Squeeze your glutes at the top and it's a glute exercise; that's the version you want.","cues":["Glutes lift you, not your lower back","Stop at straight - no banana","Slow and smooth"],"ladder":["just your bodyweight","10 lb dumbbell hugged to chest","15 lb dumbbell hugged to chest","20 lb dumbbell hugged to chest","25 lb dumbbell hugged to chest"],"why":"zero","media":{"imgA":"back_extension_45_a.jpg","imgB":"back_extension_45_b.jpg","credit":"free-exercise-db (public domain)"}},"db_step_up":{"name":"Dumbbell Step-Up","setup":"A knee-height bench or box, dumbbells at your sides.","how":"Step up with one foot and drive through that heel to stand fully on the box - try not to push off the bottom leg. Step down with control. All reps, then switch.","feel":"Glute and thigh of the working leg.","cues":["Top leg does everything","Control the way down","Stand all the way up at the top"],"ladder":["10 lb dumbbells","15 lb dumbbells","20 lb dumbbells","25 lb dumbbells","30 lb dumbbells"],"why":"low","media":{"imgA":"db_step_up_a.jpg","imgB":"db_step_up_b.jpg","credit":"free-exercise-db (public domain)"}},"cable_pull_through":{"name":"Cable Pull-Through","setup":"Cable set low with the rope handle. Face away, rope between your legs, walk out two steps.","how":"Hinge your hips back letting the rope pull between your legs, then squeeze your glutes to stand tall. It looks a little funny; it works a lot.","feel":"Glutes and hamstrings.","cues":["Hips back, back flat","Stand up with your glutes, not your arms","Tall finish, no lean-back"],"ladder":["20 lb on the stack","30 lb on the stack","40 lb on the stack","50 lb on the stack","60 lb on the stack","70 lb on the stack","80 lb on the stack"],"why":"zero"},"assisted_pullup":{"name":"Assisted Pull-Up (machine)","setup":"Kneel or stand on the assist pad, hands on the wide grips. Note: on this machine, LESS weight on the stack = harder.","how":"Pull your chin toward the bar, lower all the way down with control.","feel":"Back and arms. The long game here: one day the assist hits zero and you do a real pull-up.","cues":["Chest to the bar, not chin poking","All the way down each rep","Elbows drive down"],"ladder":["80 lb assist","70 lb assist","60 lb assist","50 lb assist","40 lb assist","30 lb assist","20 lb assist","10 lb assist"],"why":"zero"},"kb_deadlift":{"name":"Kettlebell Deadlift","setup":"Kettlebell on the floor between your feet, feet hip-width.","how":"Hips back, flat back, grab the handle with both hands, then stand tall by driving your hips forward. Lower it back down the same way.","feel":"Glutes, hamstrings, grip - the whole back side.","cues":["Chest proud before you lift","Push the floor away","Bell stays close"],"ladder":["26 lb kettlebell (12 kg)","35 lb kettlebell (16 kg)","44 lb kettlebell (20 kg)","53 lb kettlebell (24 kg)","62 lb kettlebell (28 kg)","70 lb kettlebell (32 kg)"],"why":"zero"},"glute_bridge_floor":{"name":"Floor Glute Bridge (weighted)","setup":"Lie on your back, knees bent, feet flat close to your butt. Dumbbell resting on your hips.","how":"Drive through your heels, lift your hips to a straight line, squeeze hard at the top, lower with control.","feel":"Glutes. The travel-friendly cousin of the hip thrust.","cues":["Ribs down","Squeeze at the top for a full second","Heels heavy"],"ladder":["just your bodyweight","20 lb dumbbell","25 lb dumbbell","30 lb dumbbell","35 lb dumbbell","40 lb dumbbell","50 lb dumbbell"],"why":"loaded version of Sculpt's bridge pulses"},"db_shoulder_press_seated":{"name":"Seated Dumbbell Shoulder Press","setup":"Sit on a bench with the back support up. A dumbbell in each hand at shoulder height, palms facing forward, elbows under your wrists.","how":"Press both dumbbells straight up until your arms are long, then lower with control until your hands are back at shoulder height.","feel":"Shoulders and the backs of your arms. This is the one thing your classes can't load up - overhead with real weight.","cues":["Wrists stacked over your elbows the whole way","Ribs down - don't lean back to get it up","Lower until your hands reach shoulder height, no lower"],"ladder":["8 lb dumbbells","10 lb dumbbells","12 lb dumbbells","15 lb dumbbells","17.5 lb dumbbells","20 lb dumbbells","25 lb dumbbells"],"why":"low - Sculpt presses overhead with 3-5 lb, so the pattern is familiar; this is the version that can actually get heavier","media":{"imgA":"db_shoulder_press_seated_a.jpg","imgB":"db_shoulder_press_seated_b.jpg","credit":"free-exercise-db (public domain)"}}},"guide":{"intro":["Twelve weeks. Three ~40-minute gym sessions and two classes a week, Monday to Friday, always laid out exactly - the exercise, the sets, the reps, the weight to grab. Weekends are yours.","This program was built for exactly one person. Every choice in it traces back to you: what your classes already give you, what you want to change, and how you actually live."],"sections":[{"id":"why-gym-days","tag":"plan","title":"Why your gym days look like this","body":["You'll notice what's missing: no crunches, no bicep curls, no shoulder raises. That's not an oversight - your classes already deliver all of that, and doing it twice would just be extra soreness with nothing to show for it. Pressing is the exception: classes press light and stay light, so the gym carries the version that actually gets heavier.","So your gym time goes to what classes can't do: heavy legs, real glute loading, and the back strength that changes how you stand and how everything fits. Light weights for lots of reps you already have; the gym is where the weights actually climb."]},{"id":"getting-stronger","tag":"stronger","title":"How you get stronger","body":["Every exercise has a ladder of weights and an exact rep count - no ranges, no deciding. You start at a friendly rung, and the page moves you up when you're ready: when you tap 'too easy', or automatically after you've owned a weight for three sessions. If something feels like a grind, tap 'felt heavy' and the next session hands you one step lighter. The reps stay the same; the weight is the dial.","Week one is two sets of everything on purpose: it's for learning the movements and finding your real starting weights. In week two, two machines get one special 'as many good reps as you can' set - most people discover they're stronger than they thought, and the weights get corrected up.","Expect most of your working weights to roughly double over the twelve weeks. That's not hype - it's what reliably happens when someone strong-but-new starts lifting with a plan."]},{"id":"when-youll-notice","tag":"stronger","title":"When you'll notice","body":["The order is always the same: first the weights move (weeks 2-4), then clothes and posture (somewhere in the middle), then the mirror catches up (weeks 8-12). If you're at week 3 and the mirror hasn't noticed yet, nothing is wrong - you are exactly on schedule, and the numbers on your ladders are the proof it's working.","The page never asks you to weigh, measure, or photograph anything. Strength, sessions, and how you feel are the scoreboard here."]},{"id":"missed-days","tag":"life","title":"Missed days","body":["You will miss days. That's not a prediction about you - it's true of everyone, and this program was built expecting it. Missed workouts are deleted, never owed: there are no make-ups, no falling behind, and nothing here ever counts what you didn't do.","If you're away more than a week, the page automatically hands you a lighter welcome-back workout designed to feel good, and your session count picks up right where it left off. It only ever goes up. The workout after a break is the hardest one in fitness - which is why it gets the biggest celebration."]},{"id":"sculpt-classes","tag":"classes","title":"Your Sculpt classes","body":["Your classes are not extra - they are half of this program. Two of them are on the calendar now, Friday and one other day, so the week has a shape you can plan around. Go to more whenever you want and log them with one tap - every one counts exactly the same.","The gym days are designed around your classes on purpose. Classes pulse and crunch - so the gym doesn't. The gym loads your legs, glutes, and back with real weight, and now presses overhead too, which is the one thing a 5 lb class dumbbell can't build. Neither one repeats the other.","One habit that makes both better: water with electrolytes after every class. The heated room takes more out of you than it feels like, and replacing it is what makes the next morning's lift feel strong."]},{"id":"weekends","tag":"life","title":"Weekends","body":["Nothing is scheduled Saturday or Sunday. Rest is when your body actually builds what you trained for, so two days off isn't a break from the program - it is the program.","If you do end up moving - a class, a workout, anything - there's a quiet 'log it' line on those days. It counts in every number here. It is never expected."]}],"coach":{"title":"Your coach - the other half of this","intro":["This page is for the gym. Your coach - the chat that lives in the macy-coach folder on your Mac - is for everything else. Open the folder, open the chat, say anything in your own words. It already knows your whole plan and everything you have logged here, so you never have to explain yourself.","No commands, no magic words. Tap any of these to see what to say. Tap the quote itself and it copies, so you can paste it straight in."],"spotlight":{"emoji":"🗓️","title":"Sunday night, two minutes","when":"The habit that makes the whole week easy: your days, your times, anything that needs to move.","say":"ok what does this week look like"},"firstWeeksTitle":"New here? Start with these three","firstWeeks":["sunday","moved","dontwant"],"groups":[{"id":"notfeeling","emoji":"😮‍💨","title":"When you are not feeling it","peek":"no motivation · no time","rows":[{"id":"dontwant","emoji":"🛋️","title":"You do not want to go","when":"Wiped, sore, or just not in the mood. Have this conversation instead of skipping - it usually ends with a smaller version, not a lecture.","say":"honestly i really do not want to go tonight"},{"id":"notime","emoji":"⏱️","title":"You have got 25 minutes","when":"A short version of today that keeps the parts that actually matter. It counts exactly the same.","say":"i have got like 25 min tops today, what do i do"}]},{"id":"weekmoves","emoji":"📅","title":"When the week moves","peek":"one day · a whole trip","rows":[{"id":"moved","emoji":"🔀","title":"A day stopped working","when":"Something landed on a lifting day, or you skipped one and want it later this week. This page updates itself.","say":"friday is not happening, can i lift saturday instead"},{"id":"travel","emoji":"✈️","title":"You are going out of town","when":"Tell it the dates and what you will have. Short travel workouts land on this page before you leave, and your normal plan comes back on its own.","say":"i am gone tues to fri, the hotel gym has dumbbells and that is it"},{"id":"classinstead","emoji":"🔥","title":"You would rather do a class","when":"A lifting day you would rather spend at Core. Your coach trades it and sorts the rest of the week - nothing is owed either way.","say":"going to core tonight instead of lifting"}]},{"id":"morethanaday","emoji":"🌊","title":"When it is more than one day","peek":"everything is heavy · you have been gone","rows":[{"id":"heavy","emoji":"🌊","title":"Everything is heavy right now","when":"A brutal stretch, barely sleeping, running on fumes. Your training gets turned down for a while instead of off.","say":"i have barely slept all week and everything feels like a lot rn"},{"id":"back","emoji":"🌤️","title":"You have been away a while","when":"No explaining, no catching up, nothing owed. Say hi and today is already built to feel good.","say":"hey i am back"}]},{"id":"wonder","emoji":"💭","title":"Stuff you will wonder about","peek":"felt weird · hate an exercise · cannot see it yet · why is it like this","rows":[{"id":"weird","emoji":"🤨","title":"That felt weird","when":"You did the thing but felt it in the wrong place, or your balance was strange. Describe it and you will get the one cue that fixes it.","say":"i felt hip thrusts in my quads instead of my butt?? what am i doing wrong"},{"id":"dread","emoji":"🔁","title":"An exercise you dread","when":"If you hate one, it is costing more than it is giving. There is always a swap that does the same job.","say":"i cannot with the leg press anymore, give me literally anything else"},{"id":"cantsee","emoji":"📈","title":"You cannot see it yet","when":"Week 3 and the mirror is not talking. Your coach has every number you have actually put up - that is the part that moves first.","say":"is this actually doing anything, i cannot tell"},{"id":"anything","emoji":"💬","title":"Anything else","when":"Why your plan looks like this, what a machine is called, whether something counts. There are no wrong questions here.","say":"wait why are there no crunches in my plan"}]}],"bigger":{"note":"These are longer conversations - they use more of Claude's energy for the day, so save them for late at night or early in the morning, one at a time.","items":[{"title":"Monthly recap","when":"Once a month: your real numbers turned into something worth screenshotting.","say":"gimme my wrapped"},{"title":"Check-in","when":"Around week 4 and week 8, or whenever things feel off - the conversation that retunes the whole plan.","say":"can we do a check-in, i want to talk through some stuff"},{"title":"Life changed","when":"New job, new hours - the whole rotation gets rebuilt around your new week.","say":"i got a job!! my whole week is different now"},{"title":"The next chapter","when":"Once, at the end of week 12: everything you built becomes the start of a brand-new program.","say":"i am almost done with the 12 weeks, what happens next"}]},"utility":{"emoji":"🛠️","title":"This page looks wrong","when":"You changed something with your coach and this page still shows the old version. Two-minute fix.","say":"my page is not updating, it still says the old thing"}}},"copy":{"howItWorks":["Every workout tells you exactly what to do: the exercise, the sets, the reps, and the exact weight to grab. No deciding, no guessing.","Your week is Monday to Friday: three lifting days and two classes, with Friday always a class. The lifting days shift a little week to week - the page always knows, so you never have to remember. Weekends are yours.","Tap the circle after every set - it fills up as you go and turns green when the exercise is done. On class days, one tap logs it. That's the whole job.","Getting stronger happens on a schedule: your weights start moving around week 2-4, and the mirror catches up around week 8-12. If you're at week 3 and don't see it yet - that is exactly on schedule.","The session counter only goes up. There is no streak to break. Ever."],"week1Note":"This week is 2 sets of everything and the weights are starting guesses. If a weight feels easy, tap 'too easy' - if it feels like a grind, tap 'felt heavy' - and the page hands you the right one next time. Finishing is the whole win this week.","amrapNote":"Special set today: on the last set, do as many good reps as you can - stop when the next rep would get ugly. This teaches you what 'working hard' actually feels like, and it's usually more than you think.","welcomeBackTitle":"Welcome back. This one's built to feel good.","welcomeBackNote":"Life happened - that's allowed, and it didn't undo anything. The research is actually clear on this: missing days doesn't erase a habit. Today is a lighter version so you walk out feeling strong, not sore. The counter picks up right where it left off.","welcomeBackDone":"THAT is the hardest workout in this whole program - the one after a break. You just did it. Everything from here is momentum.","classCelebrations":["Class {c} logged. Your classes are half the program - and you keep showing up for them.","That's {c} classes. The room's energy plus your gym days - that's the whole formula working.","Class {c} in the books. Sweat now, strut later."],"celebrations":["Session {n} in the books. That number never goes down.","Done. You showed up and did every bit of it.","That's {n} sessions of telling your own body what's up.","Finished. Somewhere in there you got a little stronger than yesterday.","Session {n} done. Consistency looks good on you.","Logged. Nobody handed you that one.","That's {n}. You are officially a person who lifts.","Done, and done properly. Every set of it.","Session {n}. The version of you from six weeks ago is watching this.","Finished. Go drink some water and feel smug about it.","{n} sessions deep. This stopped being an experiment a while ago.","That's the whole thing. Every rep you said you'd do.","Done. Your legs will mention this tomorrow and you'll enjoy it.","Session {n}. Showing up on a normal Tuesday is the entire secret.","Complete. Nothing about that was luck.","{n}. You keep doing the thing you said you'd struggle with.","That's a wrap. Strong is just a stack of days like this one.","Finished. You didn't feel like it and you did it anyway - that's the good one.","Session {n} logged. Quietly excellent.","Done. Somewhere your future self just got a little easier to be."],"bumpUp":"You maxed out the reps last time - today you go up. New weight below. This is what progress literally looks like.","dropDown":"Lighter today - exactly the right call. Sharp reps at a weight you own beat grinding every time.","dailyLines":{"climbToday":"Today the {ex} goes to {weight}. First time at that weight.","climbNext":"Finish today and the {ex} climbs next time.","firstEver":"First one ever. Two sets of everything - the only job today is finishing.","liftPlain":"{sets} × {reps} of {ex} at {weight} today. You started at {from}.","liftToday":"{session} today. About forty minutes.","classDay":"Class day. Nothing to carry but yourself.","restDay":"Nothing scheduled today.","nextUp":" Next up {day}: {session}.","milestoneNear":"One more and it's {count} workouts.","weekendDay":"Weekend. Yours to do nothing with."},"shortNudge":"Not feeling it tonight?","shortCard":{"title":"The short version","body":"The three that matter most, two sets each. Fifteen minutes, maybe twenty.","note":"It counts exactly the same - same checkmark, same number, nothing missing. Nothing on this page will ever know the difference.","button":"Do the short one tonight","undo":"Actually, give me the whole thing"},"startedAt":"You started at {from}.","lastSet":"Last one. Make it the best-looking rep of the day.","feelPrompt":"How'd that one go?","dayZero":{"title":"Before Monday: a five-minute walk-through","intro":"Go down to the gym with no plan to work out. Find these five things, tap them off, and come back upstairs. That's the whole assignment.","items":["The dumbbell rack - where the 15s, 20s and 25s live","The leg press","The lat pulldown (and its thigh pads)","A bench you can set your shoulders against","The cable machine"],"note":"Nobody down there is looking at you, and you don't have to touch anything. This is just so Monday isn't the first time you've seen the room.","done":"That's the room handled. Monday you walk in already knowing where everything is - which is the part most people never get."},"sundayExtra":"Week {week} of 12 done.","sundayCoachLine":"Sunday-night move: ask your coach on the Mac, \"What's my week look like?\" Two minutes tonight and next week runs itself.","logOffer":{"restSummary":"Training today anyway?","classSummary":"Lifting instead today?","liftSummary":"Doing something else today?","intro":"Nothing here is expected. It all counts the same either way.","classButton":"🔥 I went to Sculpt","premadeButton":"＋ Do one of my workouts","customButton":"＋ Build my own","premadePrompt":"Which one?","customTitle":"My own workout","customPrompt":"Add what you did as you go.","countsNote":"This counts in every number on this page — your total, your pounds, your months. The only thing it doesn't do is move your ladder weights by itself; those climb from your planned sessions, or any time you tap ↑ too easy."}},"photos":{"header":["p_beach_band.jpg","p_crawl_band.jpg","p_sunsetgolf_band.jpg","p_hayride_band.jpg","p_hallway_band.jpg","p_sauvage_band.jpg","p_doorway_band.jpg","p_christmas_band.jpg"],"rest":["p_beach_wide.jpg","p_sunsetgolf_wide.jpg","p_chicago_wide.jpg","p_finalfour_wide.jpg","p_rooftop_wide.jpg","p_hallway_wide.jpg","p_neonbar_wide.jpg","p_patiodance_wide.jpg","p_lights_wide.jpg","p_bluebar_wide.jpg"],"celebrate":["p_hoosiers_wide.jpg","p_brickbar_wide.jpg","p_crawl_wide.jpg","p_hayride_wide.jpg","p_sauvage_wide.jpg","p_doorway_wide.jpg","p_christmas_wide.jpg"]}};
 var STORE_KEY = "macy-coach-v1";
 
 /* ---------- state ---------- */
@@ -385,6 +383,10 @@ if(!S.droppedToday) S.droppedToday = {};
 if(!S.prefs) S.prefs = {};
 if(!S.milesSeen) S.milesSeen = [];
 if(!S.feel) S.feel = {};
+// Days SHE turned into training days: the weekend she lifted anyway, the class she went
+// to on a rest day, the workout she built herself. Keyed by date -> {s: sessionKey,
+// b: what the calendar said when she chose, at: stamp, plus title/rows for custom}.
+if(!S.localSessions) S.localSessions = {};
 if(S.muteTimer === undefined) S.muteTimer = false;
 // migrate old boolean checks into set counts, then retire the key: it was a duplicate
 // of setDone that nothing read, and it was ~a third of every sync payload.
@@ -408,7 +410,7 @@ function noteRung(exId, idx){
 function pruneState(){
   var cutoff = new Date(NOW); cutoff.setDate(NOW.getDate() - 45);
   var keep = dateKey(cutoff), n = 0;
-  ["setDone","workStart","bumpedToday","droppedToday"].forEach(function(k){
+  ["setDone","workStart","bumpedToday","droppedToday","localSessions"].forEach(function(k){
     if(!S[k]) return;
     Object.keys(S[k]).forEach(function(key){
       if(String(key).slice(0,10) < keep){ delete S[k][key]; n++; }
@@ -451,7 +453,7 @@ var PRESTART = WEEK < 1;
 if(PRESTART && (DATA.meta.version||1) === 1 && (S.completions.length || Object.keys(S.rung).length)){
   S = { setDone:{}, rung:{}, rungBest:{}, easyTap:{}, holds:{}, completions:[], exDoneCount:{},
         workStart:{}, heavyTap:{}, droppedToday:{}, prefs: S.prefs || {}, muteTimer: !!S.muteTimer,
-        milesSeen: [], feel: {}, seenIntro: S.seenIntro, seenA2HS: S.seenA2HS, restoredOnce: true };
+        milesSeen: [], feel: {}, localSessions: {}, seenIntro: S.seenIntro, seenA2HS: S.seenA2HS, restoredOnce: true };
   saveState();
 }
 // The coach's only write channel into her weights. Editing ladderStart in program.json
@@ -506,7 +508,28 @@ function layoutFor(week){
 }
 var OVR = DATA.meta.overrides || {};
 function baseKeyFor(d){ return layoutFor(weekNumber(d))[DAYNAMES[d.getDay()]]; }
-function sessionKeyFor(d){ return OVR[dateKey(d)] || baseKeyFor(d); }
+// Resolution order: the coach's overrides, then anything she assigned herself on this
+// device, then the printed rotation. A local assignment stores the base it was made
+// against ("b"), so a republished rotation that changes the day drops it instead of
+// silently fighting it — unless she already finished the workout, in which case the
+// completion is the record and the label has to keep matching it.
+function localSessionFor(dk){
+  var loc = (S.localSessions || {})[dk];
+  if(!loc) return null;
+  if(loc.b !== undefined && loc.b !== baseKeyFor(parseLocalDate(dk)) && !completionOn(dk)) return null;
+  return loc;
+}
+function sessionKeyFor(d){
+  var dk = dateKey(d);
+  if(OVR[dk]) return OVR[dk];
+  var loc = localSessionFor(dk);
+  return (loc && loc.s) || baseKeyFor(d);
+}
+function isSelfLogged(d){ return !OVR[dateKey(d)] && !!localSessionFor(dateKey(d)); }
+function setLocalSession(dk, key){
+  if(!S.localSessions) S.localSessions = {};
+  S.localSessions[dk] = { s: key, b: baseKeyFor(parseLocalDate(dk)), at: new Date().toISOString() };
+}
 function isLift(key){ return typeof key === "string" && key.indexOf("lift") === 0; }
 
 /* ---------- transient ui state ---------- */
@@ -536,17 +559,26 @@ function isWelcomeBack(key){
 }
 
 /* ---------- ladders ---------- */
+// A workout she builds herself can name a movement the library has never heard of.
+// There is no error boundary on this page: one bare DATA.exercises[id] on an unknown
+// id throws, the render aborts, and she opens a blank screen at the gym. Every lookup
+// that a custom row can reach goes through exFor().
+function exFor(exId, fallbackName){
+  var ex = exId && DATA.exercises[exId];
+  return ex || { name: fallbackName || exId || "Exercise", ladder: [], cues: [] };
+}
 function rungIndex(exId, slot){
   if(S.rung[exId] !== undefined) return S.rung[exId];
-  var idx = DATA.exercises[exId].ladder.indexOf(slot.ladderStart);
+  var idx = exFor(exId).ladder.indexOf(slot && slot.ladderStart);
   return idx < 0 ? 0 : idx;
 }
 function startIndex(exId, slot){
-  var idx = DATA.exercises[exId].ladder.indexOf(slot.ladderStart);
+  var idx = exFor(exId).ladder.indexOf(slot && slot.ladderStart);
   return idx < 0 ? 0 : idx;
 }
 function currentWeight(exId, slot){
-  var ladder = DATA.exercises[exId].ladder;
+  var ladder = exFor(exId).ladder;
+  if(!ladder.length) return "";
   return ladder[Math.min(rungIndex(exId, slot), ladder.length-1)];
 }
 function weightNum(label){
@@ -565,7 +597,7 @@ function bumpPending(exId){
 }
 function applyBumpIfPending(exId, slot){
   if(!bumpPending(exId)) return false;
-  var ladder = DATA.exercises[exId].ladder;
+  var ladder = exFor(exId).ladder;
   var idx = rungIndex(exId, slot);
   if(idx >= ladder.length-1) return false;
   noteRung(exId, idx + 1);
@@ -717,7 +749,6 @@ function parseRoute(){
   var parts = h.split("/");
   if(parts[0] === "day" && parts[1] && /^\d{4}-\d{2}-\d{2}$/.test(parts[1])) return { page: "day", date: parts[1] };
   if(parts[0] === "history") return { page: "history" };
-  if(parts[0] === "letters") return { page: "letters" };
   if(parts[0] === "program" && parts[1]) return { page: "program", section: parts[1].replace(/[^a-z0-9\-]/g, "") };
   if(PAGES.indexOf(parts[0]) >= 0) return { page: parts[0] };
   return { page: "today" };
@@ -746,7 +777,7 @@ var TABLABELS = { today: "Today", plan: "Schedule", program: "Guide", progress: 
 function tabbar(){
   var el = document.getElementById("tabs");
   if(!el) return;
-  var cur = (ROUTE.page === "day" || ROUTE.page === "history") ? "plan" : (ROUTE.page === "letters" ? "progress" : ROUTE.page);
+  var cur = (ROUTE.page === "day" || ROUTE.page === "history") ? "plan" : ROUTE.page;
   var html = "";
   PAGES.forEach(function(id){
     html += '<button class="tabbtn' + (cur === id ? " on" : "") + '" data-nav="' + id + '"' +
@@ -776,7 +807,7 @@ function weekStrip(){
   var start = new Date(NOW); start.setDate(NOW.getDate() - ((NOW.getDay()+6)%7));
   var html = '<div class="weekstrip">';
   var liftNames = [];
-  var sundayOff = true;
+  var classNames = [];
   for(var i=0;i<7;i++){
     var d = new Date(start); d.setDate(start.getDate()+i);
     var k = dateKey(d);
@@ -784,7 +815,7 @@ function weekStrip(){
     var key = k < DATA.meta.startDate ? "rest" : sessionKeyFor(d);
     var lift = isLift(key);
     if(lift) liftNames.push(FULLSHORT[d.getDay()]);
-    if(d.getDay() === 0) sundayOff = (key === "rest");
+    if(key === "open") classNames.push(FULLSHORT[d.getDay()]);
     var comp = completionOn(k);
     var isClass = comp && comp.session === "sculpt";
     var cls = "dot" + (comp ? (isClass ? " classdone" : " done") : "") +
@@ -796,7 +827,8 @@ function weekStrip(){
   }
   html += '</div>';
   html += '<div class="liftline">' + (liftNames.length
-    ? 'Lifting: <b>' + liftNames.join(" · ") + '</b> — Sculpt slots in wherever you book it' + (sundayOff ? ' — Sunday off' : '')
+    ? 'Lifting: <b>' + liftNames.join(" · ") + '</b>' +
+      (classNames.length ? ' · Class: <b>' + classNames.join(" · ") + '</b>' : '') + " · weekend's yours"
     : 'Your program starts ' + esc(START.toLocaleDateString("en-US",{weekday:"long"})) + ', ' + esc(niceDate(DATA.meta.startDate)) + '.') + '</div>';
   return html;
 }
@@ -856,8 +888,14 @@ function counterChip(isTraining, doneToday){
 function renderToday(){
   var key = sessionKeyFor(NOW);
   var welcomeBack = isWelcomeBack(key);
-  var session = DATA.sessions[key];
-  var isTraining = isLift(key) && !PRESTART;
+  // "custom" is hers, not the program's, so it has no entry in DATA.sessions — the
+  // title comes from what she called it. Every session lookup below must survive that.
+  var isCustom = key === "custom" && !PRESTART;
+  var loc = localSessionFor(TKEY);
+  var session = DATA.sessions[key] ||
+    (isCustom ? { title: (loc && loc.title) || (DATA.copy.logOffer || {}).customTitle || "My own workout", card: "" }
+              : { title: "Today", card: "" });
+  var isTraining = (isLift(key) || isCustom) && !PRESTART;
   var comp = completionOn(TKEY);
 
   var dayTitle = NOW.toLocaleDateString("en-US", {weekday:"long", month:"long", day:"numeric"});
@@ -881,7 +919,7 @@ function renderToday(){
     html += '<div class="coachnote"><div class="from">✦ From your coach</div><p>' + esc(NOTE.text) + '</p>' +
       '<div class="ex-actions"><button class="mini" data-note-seen>Got it 💗</button></div></div>';
   }
-  // Fixed order below the coach note: milestones, then letters, then the intro banner.
+  // Fixed order below the coach note: milestones, then the intro banner.
   if(!PRESTART && S.steadyEndedAt === TKEY && STEADY_CFG && STEADY_CFG.endedNote){
     html += '<div class="banner"><h2>Back to full</h2><p>' + esc(STEADY_CFG.endedNote) + '</p></div>';
   }
@@ -891,12 +929,6 @@ function renderToday(){
     newMiles.forEach(function(m){ html += '<div class="milerow"><span class="mdot">★</span><span>' + esc(m.text) + '</span></div>'; });
     html += '<div class="ex-actions" style="justify-content:center"><button class="mini" data-miles-seen>Love it 💗</button></div></div>';
   }
-  var newLet = PRESTART ? [] : newLetters();
-  newLet.forEach(function(L){
-    html += '<div class="card lettercard"><div class="from">✉️ ' + esc((DATA.lettersMeta && DATA.lettersMeta.from) || "For you") + '</div>' +
-      letterBlock(L) +
-      '<div class="ex-actions" style="justify-content:center"><button class="mini" data-letter-seen="' + esc(L.id) + '">Keep this 💗</button></div></div>';
-  });
   if(!S.seenIntro){
     html += '<div class="banner" id="introbanner"><h2>Hey, it\u2019s your coach.</h2>';
     (DATA.copy.howItWorks || []).forEach(function(p){ html += '<p>' + esc(p) + '</p>'; });
@@ -913,17 +945,23 @@ function renderToday(){
     var firstKey = sessionKeyFor(START);
     if(isLift(firstKey)) html += renderSessionPreviewCards(firstKey, DATA.sessions[firstKey], 1,
       "Your first workout, " + START.toLocaleDateString("en-US",{weekday:"long"}) + " — " + DATA.sessions[firstKey].title);
+  } else if(isCustom){
+    html += renderCustomBody();
   } else if(isTraining){
     html += renderSessionBody(key, session, welcomeBack);
+    html += logOffer("lift");   // for the day she does something else entirely
   } else if(key === "open"){
     html += renderClassDay(session);
   } else {
     html += '<div class="card restcard"><div class="big">🌙</div><p>' + esc(session.card) + '</p>';
-    if(WEEK >= 1 && WEEK <= DATA.meta.programWeeks){
+    // Rev 9: the weekend is two rest days. "Week N of 12 done" is only true once the
+    // week is actually done, so both Sunday lines stay pinned to Sunday.
+    if(WEEK >= 1 && WEEK <= DATA.meta.programWeeks && NOW.getDay() === 0){
       html += '<p class="ex-note" style="margin-top:10px">' + esc(fmt(DATA.copy.sundayExtra, totalCount())) + '</p>';
-      if(NOW.getDay() === 0 && DATA.copy.sundayCoachLine) html += '<p class="ex-note" style="margin-top:8px">' + esc(fmt(DATA.copy.sundayCoachLine, totalCount())) + '</p>';
+      if(DATA.copy.sundayCoachLine) html += '<p class="ex-note" style="margin-top:8px">' + esc(fmt(DATA.copy.sundayCoachLine, totalCount())) + '</p>';
     }
     html += '</div>';
+    if(WEEK >= 1) html += logOffer("rest");
   }
 
   if(!isTraining && WEEK >= 1){
@@ -1008,7 +1046,9 @@ function dailyLine(){
     return "";
   }
   if(!lift){
-    var base = key === "open" ? (L.classDay || "") : (key === "rest" ? (L.restDay || "") : "");
+    var weekend = NOW.getDay() === 0 || NOW.getDay() === 6;
+    var base = key === "open" ? (L.classDay || "")
+      : (key === "rest" ? ((weekend && L.weekendDay) ? L.weekendDay : (L.restDay || "")) : "");
     var nl = nextLiftDate();
     if(nl && L.nextUp) base += subst(L.nextUp, {
       day: nl.toLocaleDateString("en-US", { weekday: "long" }),
@@ -1041,6 +1081,133 @@ function renderDayZero(){
   return html;
 }
 
+function logOffer(kind){
+  var o = DATA.copy.logOffer; if(!o) return "";
+  if(completionOn(TKEY)) return "";
+  var summary = kind === "rest" ? o.restSummary : (kind === "open" ? o.classSummary : o.liftSummary);
+  var open = (window.__open||{})["logoffer"];
+  var html = '<details class="shortoffer" data-ho="logoffer"' + (open ? " open" : "") + '>' +
+    '<summary>' + esc(summary) + '</summary>' +
+    '<div class="shortcard"><p class="ex-note">' + esc(o.intro) + '</p>';
+  if(kind !== "open") html += '<button class="mini logbtn" data-log-class-any>' + esc(o.classButton) + '</button>';
+  if(kind !== "lift"){
+    html += '<div class="premadepick"><div class="ex-note">' + esc(o.premadePrompt) + '</div>';
+    ["liftA","liftB","liftC"].forEach(function(k){
+      var sess = DATA.sessions[k]; if(!sess) return;
+      html += '<button class="mini logbtn" data-pick-premade="' + k + '">' + esc(sess.title) + '</button>';
+    });
+    html += '</div>';
+  }
+  html += '<button class="mini logbtn" data-build-custom>' + esc(o.customButton) + '</button>';
+  html += '</div></details>';
+  return html;
+}
+
+/* ---------- the workout she builds herself ---------- */
+// Rows are deliberately tiny: {i, x:"goblet_squat", w:30, r:10, n:3} for something in
+// her library, {i, f:"Assault bike", n:1} for anything else. "i" is a monotonic id, so
+// deleting a row mid-workout can never reshuffle the sets she has already checked off.
+// NOTE: no backticks anywhere in this script — the whole page body is one template
+// literal, so a stray backtick even inside a comment ends it and breaks the render.
+function customRows(){
+  var loc = localSessionFor(TKEY);
+  return (loc && loc.rows) || [];
+}
+function customKey(row){ return checkKey("custom", "row" + row.i, 0); }
+// Sets she actually checked off, not sets she planned: in a workout she is inventing as
+// she goes, what happened IS the record. Bodyweight and cardio rows carry no weight and
+// contribute nothing to volume, but the day still counts as a workout.
+function customVolume(rows){
+  var total = 0;
+  rows.forEach(function(row){
+    if(!(row.w > 0) || !(row.r > 0)) return;
+    var done = Math.min(S.setDone[customKey(row)] || 0, row.n || 1);
+    total += row.w * row.r * done;
+  });
+  return Math.round(total);
+}
+function customRowCard(row){
+  var lib = row.x ? exFor(row.x) : null;
+  var name = lib ? lib.name : (row.f || "Exercise");
+  var ck = customKey(row);
+  var sets = row.n || 1;
+  var doneSets = Math.min(S.setDone[ck] || 0, sets);
+  var checked = doneSets >= sets;
+  var partial = doneSets > 0 && !checked;
+  var ring = partial ? ' style="background:conic-gradient(var(--good) ' + Math.round(doneSets/sets*100) + '%, var(--accent-soft) 0)"' : '';
+  var h = '<div class="card' + (checked ? ' checked' : '') + (checked && JUST.check === ck ? ' just' : '') + '">';
+  h += '<div class="ex-top"><button class="check' + (partial ? ' partial' : '') + '" data-ck="' + ck + '" data-sets="' + sets + '"' + ring +
+    ' aria-label="log a set" aria-pressed="' + checked + '">' + (checked ? "✓" : (partial ? doneSets + "/" + sets : "")) + '</button><div style="flex:1">';
+  h += '<div class="ex-name">' + esc(name) + '</div>';
+  h += '<div class="ex-rx">' + esc(sets + " × " + (row.r || "—") + (row.w > 0 ? "" : "")) + '</div>';
+  if(row.w > 0) h += '<div class="ex-weight">' + esc(row.w + " lb") + '</div>';
+  h += '<div class="ex-actions">';
+  h += '<button class="mini" data-rowadj="' + row.i + '|w|-5">− 5 lb</button>';
+  h += '<button class="mini" data-rowadj="' + row.i + '|w|5">+ 5 lb</button>';
+  h += '<button class="mini" data-rowadj="' + row.i + '|r|-1">− rep</button>';
+  h += '<button class="mini" data-rowadj="' + row.i + '|r|1">+ rep</button>';
+  h += '<button class="mini" data-rowadj="' + row.i + '|n|1">+ set</button>';
+  var running = TIMER && TIMER.ck === ck && !TIMER.done;
+  var tdone = TIMER && TIMER.ck === ck && TIMER.done;
+  h += '<button class="mini timer' + (running ? ' running' : '') + (tdone ? ' done' : '') + '" data-timer="' + ck + '" data-secs="90">' +
+    (tdone ? "Go 💪" : (running ? "⏱ " + fmtSecs(Math.max(0, Math.ceil((TIMER.endAt - Date.now())/1000))) : "⏱ rest " + fmtSecs(90))) + '</button>';
+  h += '<button class="mini" data-rowdel="' + row.i + '">✕ remove</button>';
+  h += '</div>';
+  if(running || tdone){
+    var rp = photoFrom("rest", (S.restShown || 0) + row.i);
+    if(rp) h += '<div class="restphoto">' + photoTag(rp, "rp", "you two") + '<div class="restcap">' + (tdone ? "Go 💪" : "Rest.") + '</div></div>';
+  }
+  // A free-text row has no cues, no photos and no ladder — it gets the card and the
+  // timer, never a half-populated how-to panel that would render "undefined" at her.
+  if(lib && lib.setup) h += howtoBlock(lib, null, row.x);
+  h += '</div></div></div>';
+  return h;
+}
+function renderCustomBody(){
+  var o = DATA.copy.logOffer || {};
+  var comp = completionOn(TKEY);
+  var rows = customRows();
+  var html = "";
+  if(comp){
+    var n = totalCount();
+    html += '<div class="celebrate' + (JUST.finished ? ' just' : '') + '" id="celebrate">';
+    var cp = photoFrom("celebrate", n);
+    if(cp) html += '<div class="celebphoto">' + photoTag(cp, "cp", "you two") + '</div>';
+    html += '<div class="bignum">' + n + '</div>';
+    html += '<div class="biglabel">workout' + (n === 1 ? '' : 's') + ' — this number only goes up</div>';
+    html += '<h2>' + esc(pickCelebration()) + '</h2>';
+    if(o.countsNote) html += '<p class="ex-note" style="margin-top:10px">' + esc(o.countsNote) + '</p>';
+    html += '<div class="ex-actions" style="justify-content:center"><button class="mini" data-undo-finish>Undo</button></div>';
+    html += '</div>';
+    var bits = [esc(comp.title || o.customTitle || "My own workout") + " ✓"];
+    if(comp.dur) bits.push(comp.dur + " min");
+    if(comp.vol) bits.push(comp.vol.toLocaleString() + " lb moved");
+    html += '<div class="summarystrip"><summary>' + bits.join(" · ") + '</summary></div>';
+    return html;
+  }
+  html += '<div class="warm">' + esc(o.customPrompt || "Add what you did as you go.") + '</div>';
+  if(!S.workStart[TKEY]) html += '<button class="donebtn" data-start-workout>Start workout ▶</button>';
+  rows.forEach(function(row){ html += customRowCard(row); });
+  // The picker ships the WHOLE library, including movements no session schedules, plus
+  // a free-text row for anything the library has never heard of.
+  var pickOpen = (window.__open||{})["addex"];
+  html += '<details class="shortoffer" data-ho="addex"' + (pickOpen ? " open" : "") + '><summary>＋ Add exercise</summary><div class="shortcard">';
+  html += '<div class="premadepick">';
+  Object.keys(DATA.exercises).forEach(function(id){
+    html += '<button class="mini logbtn" data-addex="' + id + '">' + esc(DATA.exercises[id].name) + '</button>';
+  });
+  html += '</div>';
+  html += '<div class="ex-note" style="margin-top:10px">Something else?</div>';
+  html += '<input class="freein" id="freeex" type="text" maxlength="40" placeholder="Name it — a run, a class, anything">';
+  html += '<button class="mini logbtn" data-addfree>＋ Add that</button>';
+  html += '</div></details>';
+  var anyDone = rows.some(function(row){ return (S.setDone[customKey(row)] || 0) > 0; });
+  html += '<button class="donebtn" id="finish-custom"' + (anyDone ? "" : " disabled") + '>' +
+    (anyDone ? "Finish workout" : "Log a set to finish") + '</button>';
+  if(o.countsNote) html += '<div class="uncheck-hint">' + esc(o.countsNote) + '</div>';
+  return html;
+}
+
 function renderClassDay(session){
   var comp = completionOn(TKEY);
   var logged = comp && comp.session === "sculpt";
@@ -1050,6 +1217,7 @@ function renderClassDay(session){
     html += '<p class="ex-note" style="margin-top:8px">' + esc(session.noClassNote) + '</p>';
     html += '</div>';
     html += '<button class="classbtn" data-log-class>' + esc(session.logButton) + '</button>';
+    html += logOffer("open");
   } else {
     html += '<div class="celebrate classy' + (JUST.classLogged ? " just" : "") + '">';
     html += '<div class="bignum">' + totalCount() + '</div>';
@@ -1114,7 +1282,7 @@ function renderSessionBody(key, session, welcomeBack){
     applyBumpIfPending(exId, slot);
     var wasBumpedToday = (S.bumpedToday||{})[TKEY+"|"+exId];
     var wasDroppedToday = (S.droppedToday||{})[TKEY+"|"+exId];
-    var ex = DATA.exercises[exId];
+    var ex = exFor(exId);
     var ck = checkKey(key, exId, i);
     var sets = setsFor(slot);
     var doneSets = Math.min(S.setDone[ck]||0, sets);
@@ -1133,7 +1301,7 @@ function renderSessionBody(key, session, welcomeBack){
     // where she started, once she's actually moved — gets better every week for twelve weeks
     var stIdx = startIndex(exId, slot);
     if(rungIndex(exId, slot) > stIdx && DATA.copy.startedAt)
-      cards += '<div class="ex-note startedat">' + esc(subst(DATA.copy.startedAt, { from: DATA.exercises[exId].ladder[stIdx] })) + '</div>';
+      cards += '<div class="ex-note startedat">' + esc(subst(DATA.copy.startedAt, { from: exFor(exId).ladder[stIdx] })) + '</div>';
     if(slot.note) cards += '<div class="ex-note">' + esc(slot.note) + '</div>';
     if(wasBumpedToday) cards += '<div class="ex-bump">' + esc(DATA.copy.bumpUp) + '</div>';
     if(wasDroppedToday) cards += '<div class="ex-bump">' + esc(DATA.copy.dropDown) + '</div>';
@@ -1281,8 +1449,9 @@ function renderPlan(){
       var session = DATA.sessions[key];
       var cls = "dayrow " + (isLift(key) ? "islift" : (key === "rest" ? "isrest" : "isopen")) + (k === TKEY ? " istoday" : "");
       var label = isLift(key) ? session.title :
-        (key === "rest" ? (moved ? "Rest — this week" : "Rest — always off") :
-          (key === "open" ? "Class day — Sculpt when you book it" : (session.title || "")));
+        (key === "rest" ? (moved ? "Rest — this week" : (d.getDay() === 0 || d.getDay() === 6
+            ? "Weekend — nothing scheduled" : "Rest — this week")) :
+          (key === "open" ? "Sculpt class — book whichever time works" : (session.title || "")));
       var mark = comp ? (isClass ? '<span class="dmark fl">🔥 class</span>' : '<span class="dmark">✓ done</span>') :
         (k === TKEY ? '<span class="dmark">today</span>' : (moved ? '<span class="dmark">↷ moved</span>' : '<span class="dmark"></span>'));
       rows += '<button class="' + cls + '" data-day="' + k + '"><span class="dnum">' + FULLSHORT[d.getDay()] + ' ' + d.getDate() + '</span>' +
@@ -1348,7 +1517,7 @@ function renderHistory(){
     for(var i=S.completions.length-1;i>=0;i--){
       var c = S.completions[i];
       var isClass = c.session === "sculpt";
-      var title = isClass ? "Sculpt class" : ((DATA.sessions[c.session]||{}).title || "Workout");
+      var title = isClass ? "Sculpt class" : (c.title || (DATA.sessions[c.session]||{}).title || "Workout");
       var d = parseLocalDate(c.date);
       var meta = [];
       if(!isClass && c.dur) meta.push(c.dur + " min");
@@ -1362,27 +1531,6 @@ function renderHistory(){
   }
   html += footerBlock();
   return html;
-}
-
-function renderLetters(){
-  var html = '<button class="backbtn" data-nav="progress">← Back</button>';
-  html += '<div class="pagehead"><h1>' + esc((DATA.lettersMeta && DATA.lettersMeta.title) || "Letters") + '</h1>';
-  if(DATA.lettersMeta && DATA.lettersMeta.intro) html += '<p>' + esc(DATA.lettersMeta.intro) + '</p>';
-  html += '</div>';
-  var all = writtenLetters();
-  if(!all.length){
-    html += '<div class="card emptystate"><div class="big">✉️</div><p>Nothing here yet.</p></div>';
-    return html + footerBlock();
-  }
-  all.forEach(function(L){
-    if(letterUnlocked(L)){
-      html += '<div class="card lettercard">' + letterBlock(L) + '</div>';
-    } else {
-      // locked: the teaser only. The body must never reach the HTML — this page is public.
-      html += '<div class="card lockedletter"><span class="lock">🔒</span> ' + esc(L.lockedTeaser || lockLabel(L.trigger)) + '</div>';
-    }
-  });
-  return html + footerBlock();
 }
 
 /* ---------- DAY PREVIEW ---------- */
@@ -1431,11 +1579,14 @@ function renderDayPreview(dateStr){
       }
       html += '<div class="ex-actions" style="margin-top:10px"><button class="mini" data-edit-remove="' + dateStr + '">Remove — logged by mistake</button></div>';
       html += '</div>';
-    } else if(key !== "rest"){
+    } else {
       html += '<div class="card"><h3 class="ptitle">Did this day happen?</h3>' +
         '<p class="ex-note">If you worked out but never logged it, add it here — it counts exactly the same.</p>' +
         '<div class="ex-actions" style="margin-top:10px">';
       if(isLift(key)) html += '<button class="mini" data-backfill-lift="' + dateStr + '">＋ I did ' + esc(session.title) + '</button>';
+      else ["liftA","liftB","liftC"].forEach(function(k){
+        if(DATA.sessions[k]) html += '<button class="mini" data-backfill-premade="' + dateStr + '|' + k + '">＋ I did ' + esc(DATA.sessions[k].title) + '</button>';
+      });
       html += '<button class="mini" data-backfill-class="' + dateStr + '">＋ I went to Sculpt</button>';
       html += '</div></div>';
     }
@@ -1598,49 +1749,6 @@ if(!S.milesBackfilled){
   saveState();
 }
 
-/* ---------- letters ---------- */
-function letterUnlocked(L){
-  var t = L.trigger || {};
-  if(t.type === "workouts") return totalCount() >= t.count;
-  if(t.type === "lifts") return liftCount() >= t.count;
-  if(t.type === "classes") return classCount() >= t.count;
-  if(t.type === "comebacks"){
-    var c = 0; S.completions.forEach(function(x){ if(x.welcomeBack) c++; });
-    return c >= t.count;
-  }
-  if(t.type === "week") return WEEK >= t.week && totalCount() > 0;
-  return false;
-}
-function dec(s){ try{ return decodeURIComponent(escape(atob(s))); }catch(e){ return ""; } }
-function writtenLetters(){
-  // an unwritten slot simply does not exist — nothing blank ever reaches her
-  return (DATA.letters || []).filter(function(L){ return L && L.t && L.b && L.b.length; });
-}
-function unlockedLetters(){ return writtenLetters().filter(letterUnlocked); }
-function newLetters(){
-  var seen = S.lettersSeen || [];
-  return unlockedLetters().filter(function(L){ return seen.indexOf(L.id) < 0; });
-}
-function lockLabel(t){
-  if(!t) return "Unlocks later";
-  if(t.type === "workouts") return "Unlocks at workout " + t.count;
-  if(t.type === "lifts") return "Unlocks at gym session " + t.count;
-  if(t.type === "classes") return "Unlocks at Sculpt class " + t.count;
-  if(t.type === "week") return "Unlocks in week " + t.week;
-  if(t.type === "comebacks") return t.count === 1 ? "Unlocks the day you come back from a break" : "Unlocks after " + t.count + " comebacks";
-  return "Unlocks later";
-}
-function letterBlock(L){
-  var h = '<h3 class="ltitle">' + esc(dec(L.t)) + '</h3>';
-  if(L.photo){
-    h += '<img class="lphoto" src="./media/' + L.photo + '" alt="' + esc(L.photoAlt || "") + '" loading="lazy" decoding="async">';
-    if(L.pc) h += '<div class="lcaption">' + esc(dec(L.pc)) + '</div>';
-  }
-  (L.b || []).forEach(function(p){ h += '<p>' + esc(dec(p)) + '</p>'; });
-  if(L.sg) h += '<div class="lsign">' + esc(dec(L.sg)) + '</div>';
-  return h;
-}
-
 /* ---------- PROGRESS ---------- */
 function renderProgress(){
   var n = totalCount();
@@ -1748,14 +1856,6 @@ function renderProgress(){
   });
   html += '</div>';
 
-  var letters = writtenLetters();
-  if(letters.length){
-    var unlocked = unlockedLetters();
-    html += '<button class="dayrow islift" data-nav="letters"><span class="dnum">✉️</span>' +
-      '<span class="dsess">' + (unlocked.length ? unlocked.length + ' letter' + (unlocked.length===1?'':'s') + ' waiting for you' : 'Letters — the first one unlocks soon') +
-      '</span><span class="dmark">open →</span></button>';
-  }
-
   html += '<div class="card"><h3 class="ptitle">Milestones</h3>';
   milestones().forEach(function(m){ html += '<div class="milerow"><span class="mdot">★</span><span>' + esc(m.text) + '</span></div>'; });
   html += '</div>';
@@ -1806,8 +1906,7 @@ function footerBlock(){
 /* ---------- render + wiring ---------- */
 function render(){
   var app = document.getElementById("app");
-  var nextHash = ROUTE.page === "letters" ? "letters" :
-    ROUTE.page === "day" ? "day/" + ROUTE.date :
+  var nextHash = ROUTE.page === "day" ? "day/" + ROUTE.date :
     (ROUTE.page === "program" && ROUTE.section ? "program/" + ROUTE.section :
     (ROUTE.page === "today" ? "" : ROUTE.page));
   var sameRoute = nextHash === LAST_RENDERED_HASH;
@@ -1818,7 +1917,6 @@ function render(){
   else if(ROUTE.page === "progress") html += renderProgress();
   else if(ROUTE.page === "day") html += renderDayPreview(ROUTE.date);
   else if(ROUTE.page === "history") html += renderHistory();
-  else if(ROUTE.page === "letters") html += renderLetters();
   else html += renderToday();
   html += '</div>';
   app.innerHTML = html;
@@ -1866,12 +1964,11 @@ function afterRender(sameRoute, sy){
   JUST = { check: null, finished: false, classLogged: false };
 }
 
-// One burst for milestones and letters combined, at most once per distinct set, and
+// One burst for newly-crossed milestones, at most once per distinct set, and
 // never on top of the session-finish burst that already fired.
 function celebrateUnlocks(){
   if(ROUTE.page !== "today" || PRESTART) return;
-  var ids = newMilestones().map(function(m){ return "m:" + m.id; })
-    .concat(newLetters().map(function(L){ return "l:" + L.id; }));
+  var ids = newMilestones().map(function(m){ return "m:" + m.id; });
   if(!ids.length) return;
   var sig = ids.join(",");
   if(S.milesFiredFor === sig) return;
@@ -1960,14 +2057,6 @@ function wire(){
     btn.addEventListener("click", function(){
       if(!S.milesSeen) S.milesSeen = [];
       newMilestones().forEach(function(m){ if(S.milesSeen.indexOf(m.id) < 0) S.milesSeen.push(m.id); });
-      saveState(); render();
-    });
-  });
-  document.querySelectorAll("[data-letter-seen]").forEach(function(btn){
-    btn.addEventListener("click", function(){
-      var id = btn.getAttribute("data-letter-seen");
-      if(!S.lettersSeen) S.lettersSeen = [];
-      if(S.lettersSeen.indexOf(id) < 0) S.lettersSeen.push(id);
       saveState(); render();
     });
   });
@@ -2081,6 +2170,137 @@ function wire(){
       fireConfetti();
     });
   });
+  // Logging a class on a day the calendar didn't plan one: assign the day to "open"
+  // locally and push the same completion the scheduled path pushes. renderClassDay then
+  // handles the celebration, the effort chips and Undo with no new render code.
+  document.querySelectorAll("[data-log-class-any]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      JUST.classLogged = true;
+      setLocalSession(TKEY, "open");
+      S.completions.push({ date: TKEY, session: "sculpt", week: WEEKCLAMP, effort: null,
+                           at: new Date().toISOString(), local: true });
+      sortCompletions();
+      saveState();
+      render();
+      fireConfetti();
+    });
+  });
+  // "Do one of my workouts" on an unscheduled day: the day becomes that real session —
+  // same cards, same weights, same timers, same Finish, same everything downstream.
+  document.querySelectorAll("[data-pick-premade]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      setLocalSession(TKEY, btn.getAttribute("data-pick-premade"));
+      saveState();
+      render();
+    });
+  });
+  // "Build my own": an empty workout she fills in as she goes.
+  document.querySelectorAll("[data-build-custom]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      setLocalSession(TKEY, "custom");
+      var loc = S.localSessions[TKEY];
+      loc.title = (DATA.copy.logOffer || {}).customTitle || "My own workout";
+      loc.rows = [];
+      loc.seq = 0;
+      saveState();
+      render();
+    });
+  });
+  function customLoc(){
+    var loc = S.localSessions[TKEY];
+    if(!loc || loc.s !== "custom") return null;
+    if(!loc.rows) loc.rows = [];
+    if(!loc.seq) loc.seq = 0;
+    return loc;
+  }
+  document.querySelectorAll("[data-addex]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var loc = customLoc(); if(!loc) return;
+      var id = btn.getAttribute("data-addex");
+      var ex = exFor(id);
+      // Pre-fill from what she is actually lifting today: her current rung, not the
+      // program's starting weight. Typing on a phone between sets is the enemy.
+      var ladder = ex.ladder || [];
+      var w = ladder.length ? weightNum(ladder[Math.min(S.rung[id] !== undefined ? S.rung[id] : 0, ladder.length - 1)]) : 0;
+      loc.rows.push({ i: ++loc.seq, x: id, w: w, r: 10, n: 3 });
+      saveState();
+      render();
+    });
+  });
+  document.querySelectorAll("[data-addfree]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var loc = customLoc(); if(!loc) return;
+      var input = document.getElementById("freeex");
+      var name = ((input && input.value) || "").trim().slice(0, 40);
+      if(!name) return;
+      if(loc.rows.length >= 12) return;   // a phone-sized ceiling, not a judgement
+      loc.rows.push({ i: ++loc.seq, f: name, w: 0, r: 10, n: 1 });
+      if(input) input.value = "";
+      saveState();
+      render();
+    });
+  });
+  document.querySelectorAll("[data-rowadj]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var loc = customLoc(); if(!loc) return;
+      var parts = btn.getAttribute("data-rowadj").split("|");
+      var id = parseInt(parts[0], 10), field = parts[1], delta = parseInt(parts[2], 10);
+      loc.rows.forEach(function(row){
+        if(row.i !== id) return;
+        var v = (row[field] || 0) + delta;
+        if(field === "w") row.w = Math.max(0, v);
+        if(field === "r") row.r = Math.max(1, Math.min(50, v));
+        if(field === "n") row.n = Math.max(1, Math.min(10, v));
+      });
+      saveState();
+      render();
+    });
+  });
+  document.querySelectorAll("[data-rowdel]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var loc = customLoc(); if(!loc) return;
+      var id = parseInt(btn.getAttribute("data-rowdel"), 10);
+      loc.rows = loc.rows.filter(function(row){
+        if(row.i !== id) return true;
+        delete S.setDone[customKey(row)];
+        return false;
+      });
+      saveState();
+      render();
+    });
+  });
+  var finishCustom = document.getElementById("finish-custom");
+  if(finishCustom){
+    finishCustom.addEventListener("click", function(){
+      if(finishCustom.disabled) return;
+      var loc = customLoc(); if(!loc) return;
+      JUST.finished = true;
+      stopTimer();
+      var st = S.workStart[TKEY];
+      var dur = st ? Math.round((Date.now() - st) / 60000) : null;
+      if(dur !== null && (dur < 1 || dur > 240)) dur = null;
+      var rows = loc.rows || [];
+      S.completions.push({ date: TKEY, session: "custom", title: loc.title, week: WEEKCLAMP,
+        vol: customVolume(rows), dur: dur, local: true,
+        ex: rows.map(function(row){
+          var out = { n: row.x ? exFor(row.x).name : row.f, s: Math.min(S.setDone[customKey(row)] || 0, row.n || 1) };
+          if(row.w > 0) out.w = row.w;
+          if(row.r > 0) out.r = row.r;
+          return out;
+        }),
+        at: new Date().toISOString() });
+      // The completion carries what she did; the live scaffolding is dead weight now.
+      // Deliberately NOT touching exDoneCount: a custom row has no fixed set-and-rep
+      // contract, so it must never trigger a silent automatic weight climb. Her own
+      // "too easy" tap still works, and the coach can move a weight by hand.
+      delete loc.rows;
+      delete loc.seq;
+      sortCompletions();
+      saveState();
+      flushState();
+      render();
+    });
+  }
   document.querySelectorAll("[data-effort]").forEach(function(btn){
     btn.addEventListener("click", function(){
       var comp = completionOn(TKEY);
@@ -2150,13 +2370,34 @@ function wire(){
       render();
     });
   });
+  // Backfilling a workout onto a past day nothing was scheduled for (a weekend she
+  // trained and forgot to log). Same shape as the scheduled backfill, plus the local
+  // assignment so History and the day preview name the right session.
+  document.querySelectorAll("[data-backfill-premade]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var parts = btn.getAttribute("data-backfill-premade").split("|");
+      var dk = parts[0], skey = parts[1];
+      if(completionOn(dk) || !DATA.sessions[skey]) return;
+      var wk2 = clampWeek(weekNumber(parseLocalDate(dk)));
+      var sess = DATA.sessions[skey];
+      setLocalSession(dk, skey);
+      S.completions.push({ date: dk, session: skey, week: wk2, welcomeBack: false,
+        vol: estSessionVolume(sess, false, wk2), dur: null, at: new Date().toISOString(),
+        backfilled: true, local: true });
+      sess.exercises.forEach(function(slot){ S.exDoneCount[slot.exerciseId] = (S.exDoneCount[slot.exerciseId]||0) + 1; });
+      sortCompletions();
+      saveState();
+      render();
+    });
+  });
   document.querySelectorAll("[data-backfill-class]").forEach(function(btn){
     btn.addEventListener("click", function(){
       var dk = btn.getAttribute("data-backfill-class");
       if(completionOn(dk)) return;
       var d = parseLocalDate(dk);
+      if(sessionKeyFor(d) !== "open") setLocalSession(dk, "open");
       S.completions.push({ date: dk, session: "sculpt", week: clampWeek(weekNumber(d)), effort: null,
-        at: new Date().toISOString(), backfilled: true });
+        at: new Date().toISOString(), backfilled: true, local: sessionKeyFor(d) !== "open" || undefined });
       sortCompletions();
       saveState();
       render();
@@ -2193,6 +2434,7 @@ function wire(){
       S.completions.push({ date: TKEY, session: key, week: WEEKCLAMP, welcomeBack: welcomeBack,
         vol: estSessionVolume(volSession, welcomeBack, WEEKCLAMP), dur: dur,
         short: wasShort || undefined,   // visible to her coach, never rendered as a lesser thing on her page
+        local: isSelfLogged(NOW) || undefined,
         at: new Date().toISOString() });
       counted.forEach(function(slot){
         S.exDoneCount[slot.exerciseId] = (S.exDoneCount[slot.exerciseId] || 0) + 1;
